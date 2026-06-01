@@ -6,135 +6,305 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Min-Seok Choi</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --illinois-blue: #13294B;
-            --illinois-orange: #FF5F05;
-            --text: #222222;
-            --muted: #666666;
-            --border: #e6e6e6;
-            --background: #ffffff;
+            --paper: #FAF6EF;
+            --ink: #23201C;
+            --ink-soft: #4F4A42;
+            --muted: #7C7367;
+            --illini-blue: #13294B;
+            --illini-orange: #FF5F05;
+            --hairline: rgba(19, 41, 75, 0.12);
+
+            --serif-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+            --serif-body: 'Newsreader', Georgia, 'Times New Roman', serif;
         }
+
+        * { box-sizing: border-box; }
+
+        html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--background);
-            color: var(--text);
-            line-height: 1.7;
+            border-top: 6px solid var(--illini-orange);
+            font-family: var(--serif-body);
+            font-size: 20px;
+            font-weight: 380;
+            line-height: 1.78;
+            background: var(--paper);
+            color: var(--ink);
+            font-feature-settings: "kern", "liga", "calt";
+        }
+
+        /* faint paper grain */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
         .container {
-            max-width: 860px;
+            position: relative;
+            z-index: 1;
+            max-width: 920px;
             margin: 0 auto;
-            padding: 56px 24px;
+            padding: 84px 32px 64px;
         }
 
-        header {
-            padding-bottom: 38px;
-            border-bottom: 1px solid var(--border);
+        /* focus-in reveal on load */
+        @keyframes focusin {
+            from { opacity: 0; transform: translateY(16px); filter: blur(9px); }
+            to   { opacity: 1; transform: none;            filter: blur(0); }
         }
+
+        .container > * {
+            animation: focusin 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+        }
+        .container > *:nth-child(1) { animation-delay: 0.04s; }
+        .container > *:nth-child(2) { animation-delay: 0.18s; }
+        .container > *:nth-child(3) { animation-delay: 0.32s; }
+        .container > *:nth-child(4) { animation-delay: 0.46s; }
+        .container > *:nth-child(5) { animation-delay: 0.60s; }
+        .container > *:nth-child(6) { animation-delay: 0.74s; }
+
+        /* ---------- header ---------- */
+
+        header { padding-bottom: 8px; }
 
         h1 {
             margin: 0;
-            font-size: 44px;
-            line-height: 1.15;
-            color: var(--illinois-blue);
+            font-family: var(--serif-display);
+            font-weight: 400;
+            font-size: clamp(44px, 7.5vw, 70px);
+            line-height: 1.02;
+            letter-spacing: -0.02em;
+            color: var(--illini-blue);
         }
 
         .subtitle {
-            margin-top: 12px;
+            margin-top: 18px;
             font-size: 18px;
+            font-weight: 380;
+            line-height: 1.55;
             color: var(--muted);
+        }
+
+        .subtitle strong {
+            font-weight: 500;
+            color: var(--illini-blue);
         }
 
         .statement {
-            margin-top: 34px;
-            font-size: 24px;
-            line-height: 1.45;
-            color: var(--text);
+            margin-top: 46px;
+            max-width: 19em;
+            font-family: var(--serif-display);
+            font-weight: 360;
+            font-size: clamp(27px, 4.2vw, 41px);
+            line-height: 1.34;
+            letter-spacing: -0.014em;
+            color: var(--ink);
         }
 
-        .justice {
-            margin-top: 18px;
-            font-size: 18px;
-            color: var(--illinois-blue);
-            border-left: 4px solid var(--illinois-orange);
-            padding-left: 16px;
+        /* translanguaging motif */
+        .langs {
+            position: relative;
+            height: 1.7em;
+            margin-top: 26px;
+            font-family: var(--serif-display);
+            font-style: italic;
+            font-size: 19px;
+            letter-spacing: 0.02em;
+            color: var(--illini-blue);
+        }
+        .langs .lang {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            animation: langcycle 14s infinite;
+        }
+        .langs .lang:nth-child(1) { animation-delay: 0s; }
+        .langs .lang:nth-child(2) { animation-delay: 2.8s; }
+        .langs .lang:nth-child(3) { animation-delay: 5.6s; }
+        .langs .lang:nth-child(4) { animation-delay: 8.4s; }
+        .langs .lang:nth-child(5) { animation-delay: 11.2s; }
+
+        @keyframes langcycle {
+            0%   { opacity: 0; transform: translateY(5px); }
+            3%   { opacity: 1; transform: translateY(0); }
+            17%  { opacity: 1; transform: translateY(0); }
+            20%  { opacity: 0; transform: translateY(-5px); }
+            100% { opacity: 0; }
+        }
+
+        .values {
+            margin-top: 42px;
+            max-width: 40em;
+            padding-left: 20px;
+            border-left: 3px solid var(--illini-orange);
+            font-style: italic;
+            font-size: 19px;
+            line-height: 1.7;
+            color: var(--ink-soft);
         }
 
         .links {
-            margin-top: 28px;
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 26px;
         }
-
         .links a {
-            display: inline-block;
-            margin-right: 18px;
-            margin-bottom: 10px;
-            color: var(--illinois-blue);
+            position: relative;
+            font-family: var(--serif-display);
+            font-style: normal;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
             text-decoration: none;
-            font-weight: bold;
-            border-bottom: 2px solid var(--illinois-orange);
+            color: var(--illini-blue);
+            padding-bottom: 3px;
         }
+        .links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--illini-orange);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+        }
+        .links a:hover { color: var(--illini-orange); }
+        .links a:hover::after { transform: scaleX(1); }
 
-        .links a:hover {
-            color: var(--illinois-orange);
-        }
+        /* ---------- sections ---------- */
 
         section {
-            padding: 34px 0;
-            border-bottom: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 150px minmax(0, 1fr);
+            gap: 44px;
+            align-items: start;
+            padding: 54px 0;
+            border-top: 1px solid var(--hairline);
         }
 
         h2 {
-            margin: 0 0 16px 0;
-            font-size: 24px;
-            color: var(--illinois-blue);
+            margin: 6px 0 0 0;
+            font-family: var(--serif-display);
+            font-weight: 500;
+            font-size: 12.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--illini-blue);
+        }
+        h2::before {
+            content: "";
+            display: block;
+            width: 22px;
+            height: 3px;
+            margin-bottom: 12px;
+            background: var(--illini-orange);
         }
 
-        p {
-            margin-top: 0;
-        }
+        .section-body { max-width: 40em; }
+
+        .section-body p { margin: 0 0 1.05em 0; }
+        .section-body p:last-child { margin-bottom: 0; }
 
         ul {
-            margin-top: 0;
-            padding-left: 22px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
         }
-
         li {
-            margin-bottom: 8px;
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 11px;
+            line-height: 1.6;
+        }
+        li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.72em;
+            width: 8px;
+            height: 2px;
+            background: var(--illini-orange);
         }
 
         .publication {
-            margin-bottom: 16px;
+            margin-bottom: 22px;
+            transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
         }
+        .publication:last-of-type { margin-bottom: 0; }
+        .publication:hover { transform: translateX(5px); }
 
         .publication-title {
-            font-weight: bold;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.45;
+            color: var(--ink);
         }
-
         .publication-meta {
+            margin-top: 3px;
+            font-style: italic;
+            font-size: 16.5px;
             color: var(--muted);
         }
+
+        .more {
+            margin-top: 26px;
+            font-size: 16px;
+        }
+        .more a {
+            color: var(--illini-blue);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 95, 5, 0.45);
+            transition: border-color 0.3s ease;
+        }
+        .more a:hover { border-color: var(--illini-orange); }
+
+        .section-body.contact p { margin-bottom: 1.2em; }
 
         footer {
-            padding-top: 32px;
-            color: var(--muted);
+            padding-top: 44px;
             font-size: 14px;
+            letter-spacing: 0.02em;
+            color: var(--muted);
         }
 
-        @media (max-width: 640px) {
-            .container {
-                padding: 36px 20px;
-            }
+        /* ---------- responsive ---------- */
 
-            h1 {
-                font-size: 36px;
+        @media (max-width: 720px) {
+            .container { padding: 52px 22px 48px; }
+            body { font-size: 18.5px; }
+            section {
+                grid-template-columns: 1fr;
+                gap: 14px;
+                padding: 42px 0;
             }
+            h2 { margin-top: 0; }
+            .statement { margin-top: 36px; }
+        }
 
-            .statement {
-                font-size: 21px;
-            }
+        @media (prefers-reduced-motion: reduce) {
+            .container > *,
+            .langs .lang,
+            .publication { animation: none !important; transition: none !important; }
+            .langs .lang { opacity: 0; }
+            .langs .lang:first-child { opacity: 1; }
         }
     </style>
 </head>
@@ -148,15 +318,23 @@
 
     <div class="subtitle">
         Assistant Professor, School of Information Sciences<br>
-        University of Illinois Urbana-Champaign
+        <strong>University of Illinois Urbana-Champaign</strong>
     </div>
 
     <div class="statement">
-        I study how children, families, and educators make meaning together in everyday interactions across homes, schools, libraries, museums, and community settings.
+        I study how multilingual children and families make meaning together, and how libraries and museums can learn to see and support it.
     </div>
 
-    <div class="justice">
-        My work is grounded in commitments to equity, social justice, and humanizing education for multilingual children, families, and communities.
+    <div class="langs" aria-hidden="true">
+        <span class="lang" lang="en">together</span>
+        <span class="lang" lang="ko">&#54632;&#44760;</span>
+        <span class="lang" lang="es">juntos</span>
+        <span class="lang" lang="vi">c&#249;ng nhau</span>
+        <span class="lang" lang="hi">&#2360;&#2366;&#2341;</span>
+    </div>
+
+    <div class="values">
+        Grounded in commitments to equity, social justice, and humanizing approaches to learning for multilingual children, families, and communities.
     </div>
 
     <div class="links">
@@ -169,84 +347,91 @@
 
 <section id="about">
     <h2>About</h2>
-
-    <p>
-        My research sits at the intersection of early literacies, interactional sociolinguistics, multilingual family learning, and teacher education.
-    </p>
-
-    <p>
-        Drawing on ethnographic, discourse analytic, and multimodal approaches, I examine how people use language, gesture, objects, stories, and relationships to participate in learning across everyday settings.
-    </p>
-
-    <p>
-        Across my work, I seek to understand and support more equitable educational futures by recognizing the knowledge, resources, and experiences that children, families, and communities bring to learning.
-    </p>
+    <div class="section-body">
+        <p>
+            My research sits at the intersection of early literacies, multilingual family learning, and the study of libraries, museums, and other public institutions as everyday learning environments.
+        </p>
+        <p>
+            Drawing on ethnographic, discourse analytic, and multimodal interaction analysis, I look closely at how people use language, gesture, objects, and stories to participate in learning. I ask what counts as literacy, who gets to be seen as literate, and how institutions can learn to notice and support multilingual family competence.
+        </p>
+    </div>
 </section>
 
 <section id="research">
     <h2>Research</h2>
-
-    <ul>
-        <li>Interaction, language, and meaning-making</li>
-        <li>Multilingual family life and learning</li>
-        <li>Early literacies across everyday settings</li>
-        <li>Translanguaging and multimodal interaction</li>
-        <li>Teacher noticing and professional vision</li>
-        <li>Equity, social justice, and humanizing approaches to education</li>
-    </ul>
+    <div class="section-body">
+        <ul>
+            <li>Multilingual family life, learning, and meaning-making</li>
+            <li>Early literacies across homes, libraries, and museums</li>
+            <li>Translanguaging and multimodal interaction analysis</li>
+            <li>Professional noticing and institutional seeing</li>
+            <li>Ethnography of everyday learning interaction</li>
+            <li>Public learning design and equitable access</li>
+        </ul>
+    </div>
 </section>
 
 <section id="selected-publications">
-    <h2>Selected Publications</h2>
+    <h2>Selected Work</h2>
+    <div class="section-body">
+        <div class="publication">
+            <div class="publication-title">
+                Constrained Multilingualism in a Korean Sojourner Family&rsquo;s Museum Learning
+            </div>
+            <div class="publication-meta">
+                Language and Intercultural Communication, 2026
+            </div>
+        </div>
 
-    <div class="publication">
-        <div class="publication-title">
-            Preparing Elementary Pre-service Teachers to Integrate Translanguaging Pedagogy through Multilingual Family Research
+        <div class="publication">
+            <div class="publication-title">
+                Integrating Multilingualism and Asset-Based Pedagogies in Literacy Education
+            </div>
+            <div class="publication-meta">
+                Literacy Research: Theory, Method, and Practice, 2025
+            </div>
         </div>
-        <div class="publication-meta">
-            International Electronic Journal of Elementary Education, 2026
+
+        <div class="publication">
+            <div class="publication-title">
+                Translanguaging through Pointing Gestures: Enhancing Multilingual Family Literacy at a Science Museum
+            </div>
+            <div class="publication-meta">
+                Journal of Early Childhood Literacy, 2024
+            </div>
         </div>
+
+        <div class="publication">
+            <div class="publication-title">
+                A Sojourning Multilingual Family&rsquo;s Sense-Making in a Science Museum: A Repertoire Approach
+            </div>
+            <div class="publication-meta">
+                Linguistics and Education, 2022
+            </div>
+        </div>
+
+        <p class="more">
+            <a href="publications.html">View more publications</a>
+        </p>
     </div>
-
-    <div class="publication">
-        <div class="publication-title">
-            Integrating Multilingualism and Asset-Based Pedagogies in Literacy Education
-        </div>
-        <div class="publication-meta">
-            Literacy Research: Theory, Method, and Practice, 2025
-        </div>
-    </div>
-
-    <div class="publication">
-        <div class="publication-title">
-            Translanguaging through Pointing Gestures
-        </div>
-        <div class="publication-meta">
-            Journal of Early Childhood Literacy, 2024
-        </div>
-    </div>
-
-    <p>
-        <a href="publications.html">View more publications</a>
-    </p>
 </section>
 
 <section id="contact">
     <h2>Contact</h2>
-
-    <p>
-        School of Information Sciences<br>
-        University of Illinois Urbana-Champaign
-    </p>
-
-    <p>
-        Email: minseok.choi@louisiana.edu<br>
-        UIUC email address coming soon
-    </p>
+    <div class="section-body contact">
+        <p>
+            School of Information Sciences<br>
+            University of Illinois Urbana-Champaign
+        </p>
+        <p>
+            minseok.choi@louisiana.edu<br>
+            UIUC email address coming soon
+        </p>
+    </div>
 </section>
 
 <footer>
-    © 2026 Min-Seok Choi
+    &copy; 2026 Min-Seok Choi
 </footer>
 
 </div>
