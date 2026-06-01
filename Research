@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Research &mdash; Min-Seok Choi</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --paper: #FAF6EF; --card: #FFFFFF;
+            --ink: #23201C; --ink-soft: #4F4A42; --muted: #7C7367;
+            --illini-blue: #13294B; --illini-orange: #FF5F05;
+            --hairline: rgba(19, 41, 75, 0.12);
+            --serif-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+            --serif-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+        }
+        * { box-sizing: border-box; }
+        html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; scroll-behavior: smooth; }
+        body {
+            margin: 0; border-top: 6px solid var(--illini-orange);
+            font-family: var(--serif-body); font-size: 20px; font-weight: 380; line-height: 1.78;
+            background: var(--paper); color: var(--ink); font-feature-settings: "kern", "liga", "calt";
+        }
+        body::before {
+            content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+        .container { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; padding: 56px 32px 72px; }
+
+        @keyframes focusin { from { opacity: 0; transform: translateY(16px); filter: blur(9px); } to { opacity: 1; transform: none; filter: blur(0); } }
+        .reveal { animation: focusin 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+        .back {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: var(--serif-display); font-size: 13px; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 0.14em;
+            text-decoration: none; color: var(--illini-blue);
+        }
+        .back .arr { transition: transform 0.3s cubic-bezier(0.2,0.7,0.2,1); }
+        .back:hover { color: var(--illini-orange); }
+        .back:hover .arr { transform: translateX(-4px); }
+
+        .page-head { padding: 40px 0 8px; }
+        .page-head .kicker { font-family: var(--serif-display); font-size: 13px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--illini-orange); }
+        .page-head h1 { margin: 14px 0 0 0; font-family: var(--serif-display); font-weight: 400; font-size: clamp(38px, 6vw, 56px); line-height: 1.05; letter-spacing: -0.02em; color: var(--illini-blue); }
+        .page-head .intro { margin-top: 22px; font-family: var(--serif-display); font-weight: 360; font-size: clamp(20px, 2.6vw, 26px); line-height: 1.4; color: var(--ink); max-width: 24em; }
+
+        /* mini nav */
+        .toc { display: flex; flex-wrap: wrap; gap: 10px 14px; margin-top: 34px; }
+        .toc a {
+            font-family: var(--serif-display); font-size: 12px; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 0.12em; text-decoration: none;
+            color: var(--illini-blue); border: 1px solid var(--hairline); border-radius: 999px;
+            padding: 7px 14px; transition: border-color 0.25s ease, color 0.25s ease;
+        }
+        .toc a:hover { border-color: var(--illini-orange); color: var(--illini-orange); }
+
+        .detail { padding: 52px 0; border-top: 1px solid var(--hairline); scroll-margin-top: 28px; }
+        .detail .tag { font-family: var(--serif-display); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.18em; color: var(--illini-orange); }
+        .detail .tag::before { content: ""; display: inline-block; width: 20px; height: 3px; background: var(--illini-orange); margin-right: 12px; vertical-align: middle; }
+        .detail h2 { margin: 16px 0 0 0; font-family: var(--serif-display); font-weight: 420; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.18; letter-spacing: -0.015em; color: var(--illini-blue); transition: color 0.3s ease; }
+        .detail:target h2 { color: var(--illini-orange); }
+        .detail p { font-size: 19px; line-height: 1.8; color: var(--ink-soft); margin: 22px 0 0 0; }
+        .detail p strong { font-weight: 500; color: var(--ink); }
+
+        .related { margin-top: 30px; }
+        .related-label { font-family: var(--serif-display); font-size: 11.5px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted); margin-bottom: 6px; }
+        .rpub { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; padding: 14px 2px; border-top: 1px solid var(--hairline); text-decoration: none; color: inherit; transition: transform 0.3s cubic-bezier(0.2,0.7,0.2,1); }
+        .rpub:last-child { border-bottom: 1px solid var(--hairline); }
+        .rpub:hover { transform: translateX(4px); }
+        .rpub .rt { font-size: 17px; font-weight: 500; line-height: 1.4; color: var(--ink); transition: color 0.25s ease; }
+        .rpub:hover .rt { color: var(--illini-orange); }
+        .rpub .rm { margin-top: 2px; font-style: italic; font-size: 15px; color: var(--muted); }
+        .rpub .rg { flex-shrink: 0; align-self: center; color: var(--illini-orange); opacity: 0.55; transition: opacity 0.25s ease, transform 0.25s ease; }
+        .rpub:hover .rg { opacity: 1; transform: translate(2px, -2px); }
+        .rpub .rg svg { width: 16px; height: 16px; display: block; }
+
+        .status { margin-top: 26px; font-style: italic; font-size: 16px; color: var(--muted); border-left: 3px solid var(--illini-orange); padding-left: 16px; }
+
+        footer { padding-top: 44px; border-top: 1px solid var(--hairline); margin-top: 8px; font-size: 14px; letter-spacing: 0.02em; color: var(--muted); }
+        footer a { color: var(--illini-blue); text-decoration: none; border-bottom: 1px solid rgba(255,95,5,0.4); }
+
+        @media (max-width: 720px) {
+            .container { padding: 40px 22px 56px; }
+            body { font-size: 18.5px; }
+            .detail { padding: 40px 0; }
+        }
+        @media (prefers-reduced-motion: reduce) { .reveal { animation: none; } html { scroll-behavior: auto; } }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <a class="back" href="index.html"><span class="arr">&larr;</span> Min-Seok Choi</a>
+
+    <header class="page-head reveal">
+        <div class="kicker">Research</div>
+        <h1>Four strands, one question</h1>
+        <p class="intro">How do people, and the institutions around them, learn to see competence?</p>
+        <nav class="toc">
+            <a href="#museums">Science Museums</a>
+            <a href="#architecture">Design Studio</a>
+            <a href="#floa">FLOA</a>
+            <a href="#library">Library Storytime</a>
+        </nav>
+    </header>
+
+    <!-- MUSEUMS -->
+    <section class="detail" id="museums">
+        <div class="tag">Multilingual literacy</div>
+        <h2>Multilingual Family Literacy in Science Museums</h2>
+        <p>This program began my research. In a series of video-based, ethnographic studies, I followed sojourning Korean-English families as they made sense of exhibits in a public science museum. Rather than treating literacy as the decoding of print, I examined how families drew on their full semiotic repertoire, their talk, gesture, gaze, objects, and the museum's own labels and instructions, to reason together.</p>
+        <p>Two patterns recur across cases. Families translanguage fluidly, layering translations to fit a child's reasoning, reworking a label's wording into successive and more precise options. And institutional texts do more than inform: signage, instructions, and exhibit scripts quietly <strong>gate participation</strong> and define what counts as literate competence. Reading is often positioned as the sanctioned way into an exhibit, while families' multilingual sense-making goes unrecorded.</p>
+        <p>The takeaway that drives the rest of my work is that competence is an observable, interactional achievement, and that the artifacts coordinating participation are redesignable. This museum research is the empirical foundation for much of my published scholarship.</p>
+        <div class="related">
+            <div class="related-label">Related publications</div>
+            <a class="rpub" href="https://doi.org/10.1080/14708477.2026.2669780" target="_blank" rel="noopener">
+                <span><span class="rt">Constrained Multilingualism in a Korean Sojourner Family&rsquo;s Museum Learning</span><span class="rm">Language and Intercultural Communication, 2026</span></span>
+                <span class="rg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 L17 7 M9 7 h8 v8"/></svg></span>
+            </a>
+            <a class="rpub" href="https://doi.org/10.1177/14687984241276290" target="_blank" rel="noopener">
+                <span><span class="rt">Translanguaging through Pointing Gestures</span><span class="rm">Journal of Early Childhood Literacy, 2024</span></span>
+                <span class="rg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 L17 7 M9 7 h8 v8"/></svg></span>
+            </a>
+            <a class="rpub" href="https://doi.org/10.1016/j.linged.2022.101106" target="_blank" rel="noopener">
+                <span><span class="rt">A Sojourning Multilingual Family&rsquo;s Sense-Making in a Science Museum</span><span class="rm">Linguistics and Education, 2022</span></span>
+                <span class="rg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 L17 7 M9 7 h8 v8"/></svg></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ARCHITECTURE -->
+    <section class="detail" id="architecture">
+        <div class="tag">Applied Linguistics</div>
+        <h2>Professional Vision in the Architecture Design Studio</h2>
+        <p>In a landscape architecture studio, I study how students, many of them multilingual and international, learn to see and talk like designers. The central site is the desk critique, where an instructor and a student work together over a physical model. Using fine-grained multimodal transcription, I trace how talk, gesture, gaze, and the model itself coordinate to build shared design narratives.</p>
+        <p>The analysis treats <strong>professional vision</strong> as an interactional accomplishment rather than a private skill. Students do not simply receive feedback; through pointing, shaping gestures, and shifts of gaze, they author design stories and rehearse imagined movement through space, a biker descending a slope, a pedestrian crossing a path. Instructors' advice-giving opens room for this authoring, and disciplinary ways of seeing laminate across time and imagined scenarios.</p>
+        <p>This strand extends the concept of professional vision to second-language disciplinary socialization, and it is the methodological home of my interaction-analytic work. A related manuscript is currently under review.</p>
+        <div class="related">
+            <div class="related-label">Related publications</div>
+            <a class="rpub" href="https://doi.org/10.1080/13562517.2020.1759527" target="_blank" rel="noopener">
+                <span><span class="rt">Ways of Seeing through Desk Critique: Intertextuality as a Pedagogical Tool</span><span class="rm">Teaching in Higher Education, 2020</span></span>
+                <span class="rg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 L17 7 M9 7 h8 v8"/></svg></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- FLOA -->
+    <section class="detail" id="floa">
+        <div class="tag">Teacher education</div>
+        <h2>Family Learning Observation &amp; Analysis (FLOA)</h2>
+        <p>FLOA is a structured training cycle, Observe, Analyze, Reflect, Plan, that I built into literacy methods courses. Its purpose is to slow down interpretation so that preservice teachers replace deficit assumptions with evidence-based noticing of what multilingual families actually do.</p>
+        <p>Working from video cases and a fieldnote protocol, candidates learn to broaden literacy beyond print to multimodal participation, and to move families' linguistic practices from the background to central evidence of children's meaning-making. The work also names a stubborn limit: even after noticing multilingual competence, candidates often default to English-only lesson plans. That pattern reveals <strong>raciolinguistic ideologies as a design problem</strong> in teacher learning, not simply an attitude to be corrected.</p>
+        <p>FLOA connects my family-learning research to teacher education, and it is the apparatus I am now adapting to train noticing in library and museum staff.</p>
+        <div class="related">
+            <div class="related-label">Related publications</div>
+            <a class="rpub" href="https://doi.org/10.1177/23813377251358188" target="_blank" rel="noopener">
+                <span><span class="rt">Integrating Multilingualism and Asset-Based Pedagogies in Literacy Education</span><span class="rm">Literacy Research: Theory, Method, and Practice, 2025</span></span>
+                <span class="rg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 L17 7 M9 7 h8 v8"/></svg></span>
+            </a>
+            <a class="rpub" href="https://doi.org/10.26822/iejee.2026.431" target="_blank" rel="noopener">
+                <span><span class="rt">Preparing Elementary Pre-service Teachers to Integrate Translanguaging Pedagogy</span><span class="rm">International Electronic Journal of Elementary Education, 2026</span></span>
+                <span class="rg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 L17 7 M9 7 h8 v8"/></svg></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- LIBRARY -->
+    <section class="detail" id="library">
+        <div class="tag">LIS</div>
+        <h2>Professional Vision in Library Storytime</h2>
+        <p>This is the forward direction of my program at the iSchool. I am extending professional vision from classrooms and museums into public libraries, with storytime as the anchoring site. The questions are how multilingual families participate in storytime and library spaces, what institutional texts and program scripts make noticeable or invisible, and how staff can be trained to see family competence as evidence.</p>
+        <p>The design is comparative. Two nearby libraries serve overlapping but distinct multilingual communities through different infrastructures, which lets me ask how institutional arrangements shape what competence becomes legible. The method carries over from my earlier work: multimodal interaction analysis of naturally occurring programs, a shared video corpus and annotation workflow, and FLOA-derived noticing routines adapted for library staff. The aim is not only to document participation but to <strong>redesign storytime and public programs as equitable, built-in access</strong>.</p>
+        <p>I am positioning this work for IMLS and Spencer funding and for collaboration across campus, including the Center for Children's Books, the CU Community Fab Lab, and local public libraries.</p>
+        <div class="status">Emerging program, 2026 onward. Details and partnerships will be added as the work develops.</div>
+    </section>
+
+    <footer>
+        &copy; 2026 Min-Seok Choi &middot; <a href="index.html">Home</a>
+    </footer>
+
+</div>
+
+</body>
+</html>
