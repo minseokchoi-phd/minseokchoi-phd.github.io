@@ -84,6 +84,41 @@
         .narrative p:last-child { margin-bottom: 0; }
         .narrative strong { font-weight: 500; color: var(--ink); }
 
+
+        /* beyond research */
+        .beyond-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .beyond-card {
+            background: var(--card); border: 1px solid var(--hairline); border-radius: 14px;
+            padding: 26px 22px; min-height: 220px;
+        }
+        .beyond-icon { width: 58px; height: 58px; margin-bottom: 20px; color: var(--illini-blue); }
+        .beyond-icon svg { width: 100%; height: 100%; display: block; }
+        .beyond-keyword { font-family: var(--serif-display); font-size: 21px; line-height: 1.3; color: var(--illini-blue); }
+        .beyond-meta {
+            margin-top: 10px; font-family: var(--serif-display); font-size: 11px; line-height: 1.65;
+            text-transform: uppercase; letter-spacing: 0.09em; color: var(--muted);
+        }
+
+        /* family literacies */
+        .family-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center; }
+        .family-visual img { width: 100%; display: block; border-radius: 14px; border: 1px solid var(--hairline); }
+        .family-copy h2 {
+            margin: 0 0 18px; font-family: var(--serif-display); font-weight: 500; color: var(--illini-blue);
+            font-size: 13px; text-transform: uppercase; letter-spacing: 0.2em;
+        }
+        .family-copy h2::before { content: ""; display: block; width: 22px; height: 3px; margin-bottom: 12px; background: var(--illini-orange); }
+        .family-lead {
+            font-family: var(--serif-display); font-size: clamp(24px, 3vw, 31px);
+            line-height: 1.35; color: var(--illini-blue); margin: 0 0 18px;
+        }
+        .family-copy > p:not(.family-lead) { font-size: 17px; line-height: 1.7; color: var(--ink-soft); margin: 0; }
+        .family-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .family-tag {
+            font-family: var(--serif-display); font-size: 10.5px; letter-spacing: 0.08em;
+            text-transform: uppercase; color: var(--illini-blue); background: rgba(19,41,75,0.055);
+            border: 1px solid var(--hairline); border-radius: 999px; padding: 7px 10px;
+        }
+
         /* project cards (links) */
         .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
         .card {
@@ -146,6 +181,8 @@
             body { font-size: 18.5px; }
             section { padding: 44px 0; }
             .cards { grid-template-columns: 1fr; }
+            .beyond-grid, .family-grid { grid-template-columns: 1fr; }
+            .family-grid { gap: 26px; }
             .transcript { font-size: 11px; }
         }
         @media (prefers-reduced-motion: reduce) {
@@ -291,30 +328,68 @@ I am interested in how everyday interactions can reveal and expand possibilities
 </section>
 
 <section id="beyond">
+    <div class="section-head">
+        <h2>Beyond Research</h2>
+        <p class="section-sub">Experiences and places that continue to shape how I understand learning, literacy, and belonging.</p>
+    </div>
 
-<div class="section-head">
-<h2>Beyond Research</h2>
-</div>
+    <div class="beyond-grid">
+        <article class="beyond-card">
+            <div class="beyond-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 18h40v31H12z"/><path d="M20 12h24v6H20zM20 28h24M20 36h15"/>
+                    <circle cx="46" cy="41" r="3" fill="#FF5F05" stroke="none"/>
+                </svg>
+            </div>
+            <div class="beyond-keyword">Classroom Roots</div>
+            <div class="beyond-meta">South Korea · Six Years · K–12</div>
+        </article>
 
-<div class="narrative">
+        <article class="beyond-card">
+            <div class="beyond-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M11 48c9-12 16-18 24-18 7 0 11 5 18 5"/><path d="M13 20h16v11H13z"/>
+                    <path d="M41 15l10 10-10 10-10-10z"/><circle cx="20" cy="25" r="3" fill="#FF5F05" stroke="none"/>
+                </svg>
+            </div>
+            <div class="beyond-keyword">Everyday Learning</div>
+            <div class="beyond-meta">Museums · Libraries · Playgrounds</div>
+        </article>
 
-<p>
-Before becoming a researcher, I was a classroom teacher in South Korea. For six years, I taught children across elementary, middle, and high school settings. Those experiences continue to shape how I think about learning, literacy, and educational equity.
-</p>
+        <article class="beyond-card">
+            <div class="beyond-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="32" cy="21" r="8"/><circle cx="16" cy="29" r="6"/><circle cx="48" cy="29" r="6"/>
+                    <path d="M19 50c1-10 6-15 13-15s12 5 13 15M6 50c1-8 4-12 10-12M58 50c-1-8-4-12-10-12"/>
+                    <circle cx="32" cy="21" r="2.5" fill="#FF5F05" stroke="none"/>
+                </svg>
+            </div>
+            <div class="beyond-keyword">Community Belonging</div>
+            <div class="beyond-meta">Multilingual Families · Public Institutions</div>
+        </article>
+    </div>
+</section>
 
-<p>
-My scholarship is also deeply informed by life beyond universities. As a parent of bilingual children, I spend much of my time in the spaces I study: museums, libraries, classrooms, playgrounds, and community programs. Many of the questions that drive my research begin not in academic journals, but in everyday interactions.
-</p>
+<section id="family-literacies">
+    <div class="family-grid">
+        <div class="family-visual">
+            <img src="family-literacies-at-home.webp"
+                 alt="Anonymous line drawing of a father and two sons reading multilingual children's books and writing in journals together">
+        </div>
+        <div class="family-copy">
+            <h2>Family Literacies at Home</h2>
+            <p class="family-lead">Reading, writing, and growing across languages.</p>
+            <p>As a father of two Korean American children, I read multilingual children’s literature with my sons and make space for family journaling. These everyday practices keep my scholarship grounded in how children move across Korean and English through stories, drawing, writing, and conversation.</p>
+            <div class="family-tags" aria-label="Family literacy themes">
+                <span class="family-tag">Multilingual Children’s Literature</span>
+                <span class="family-tag">Family Journaling</span>
+                <span class="family-tag">Korean &amp; English</span>
+                <span class="family-tag">Everyday Meaning-Making</span>
+            </div>
+        </div>
+    </div>
+</section>
 
-<p>
-I am especially interested in how public institutions become places of belonging for multilingual children and families. Whether in a museum exhibit, a library storytime, or a classroom conversation, I am drawn to the small moments through which people make meaning together.
-</p>
-
-</div>
-
-</section>    
-
-    
 <!-- METHODOLOGY -->
 <section>
     <div class="section-head"><h2>Methodological Approach</h2></div>
