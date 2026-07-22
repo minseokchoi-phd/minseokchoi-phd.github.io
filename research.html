@@ -35,6 +35,21 @@
         @keyframes focusin { from { opacity: 0; transform: translateY(16px); filter: blur(9px); } to { opacity: 1; transform: none; filter: blur(0); } }
         .reveal { animation: focusin 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 
+
+        .site-nav { display:flex; justify-content:space-between; align-items:center; gap:24px; padding-bottom:42px; }
+        .brand { font-family:var(--serif-display); font-size:21px; font-weight:500; color:var(--illini-blue); text-decoration:none; }
+        .nav-links { display:flex; flex-wrap:wrap; gap:22px; }
+        .nav-links a { font-family:var(--serif-display); font-size:12px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--illini-blue); text-decoration:none; border-bottom:2px solid transparent; }
+        .nav-links a:hover, .nav-links a[aria-current="page"] { border-color:var(--illini-orange); }
+        .method { display:grid; grid-template-columns:.92fr 1.08fr; gap:38px; align-items:center; }
+        .method p { font-size:18px; line-height:1.75; color:var(--ink-soft); }
+        .method-tags { margin-top:18px; font-family:var(--serif-display); font-size:13px; color:var(--illini-blue); }
+        .method-tags .sep { color:var(--illini-orange); padding:0 5px; }
+        .transcript-panel { background:var(--card); border:1px solid var(--hairline); border-radius:14px; padding:18px; box-shadow:0 18px 42px rgba(19,41,75,.08); }
+        .transcript-panel img { width:100%; border-radius:9px; display:block; }
+        .visual-cap { margin-top:12px; font-size:12.5px; font-style:italic; line-height:1.5; color:var(--muted); }
+        .story-link { display:inline-block; margin-top:18px; font-family:var(--serif-display); font-size:13px; font-weight:500; letter-spacing:.05em; color:var(--illini-orange); text-decoration:none; }
+
         .back {
             display: inline-flex; align-items: center; gap: 8px;
             font-family: var(--serif-display); font-size: 13px; font-weight: 500;
@@ -88,7 +103,10 @@
         @media (max-width: 720px) {
             .container { padding: 40px 22px 56px; }
             body { font-size: 18.5px; }
-            .detail { padding: 40px 0; }
+            .detail { padding:40px 0; }
+            .site-nav { align-items:flex-start; padding-bottom:30px; }
+            .nav-links { justify-content:flex-end; gap:12px 16px; }
+            .method { grid-template-columns:1fr; }
         }
         @media (prefers-reduced-motion: reduce) { .reveal { animation: none; } html { scroll-behavior: auto; } }
     </style>
@@ -98,7 +116,7 @@
 
 <div class="container">
 
-    <a class="back" href="index.html"><span class="arr">&larr;</span> Min-Seok Choi</a>
+    <nav class="site-nav" aria-label="Primary navigation"><a class="brand" href="index.html">Min-Seok Choi</a><div class="nav-links"><a href="index.html">Home</a><a href="research.html" aria-current="page">Research Projects</a><a href="publications.html">Publications</a><a href="teaching.html">Teaching</a><a href="CV.pdf">CV</a><a href="life.html">Life</a></div></nav>
 
     <header class="page-head reveal">
         <div class="kicker">Research</div>
@@ -109,6 +127,7 @@
             <a href="#architecture">Design Studio</a>
             <a href="#floa">FLOA</a>
             <a href="#library">Library Storytime</a>
+            <a href="#methodology">Methodology</a>
         </nav>
     </header>
 
@@ -134,6 +153,7 @@
                 <span class="rg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 L17 7 M9 7 h8 v8"/></svg></span>
             </a>
         </div>
+        <a class="story-link" href="research-museums.html">Read the project story &rarr;</a>
     </section>
 
     <!-- ARCHITECTURE -->
@@ -150,6 +170,7 @@
                 <span class="rg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 L17 7 M9 7 h8 v8"/></svg></span>
             </a>
         </div>
+        <a class="story-link" href="research-architecture.html">Read the project story &rarr;</a>
     </section>
 
     <!-- FLOA -->
@@ -170,6 +191,7 @@
                 <span class="rg" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 L17 7 M9 7 h8 v8"/></svg></span>
             </a>
         </div>
+        <a class="story-link" href="research-floa.html">Read the project story &rarr;</a>
     </section>
 
     <!-- LIBRARY -->
@@ -180,6 +202,21 @@
         <p>The design is comparative. Two nearby libraries serve overlapping but distinct multilingual communities through different infrastructures, which lets me ask how institutional arrangements shape what competence becomes legible. The method carries over from my earlier work: multimodal interaction analysis of naturally occurring programs, a shared video corpus and annotation workflow, and FLOA-derived noticing routines adapted for library staff. The aim is not only to document participation but to <strong>redesign storytime and public programs as equitable, built-in access</strong>.</p>
         <p>I am positioning this work for IMLS and Spencer funding and for collaboration across campus, including the Center for Children's Books, the CU Community Fab Lab, and local public libraries.</p>
         <div class="status">Emerging program, 2026 onward. Details and partnerships will be added as the work develops.</div>
+        <a class="story-link" href="research-library.html">Read the project story &rarr;</a>
+    </section>
+
+
+    <section class="detail" id="methodology">
+        <div class="tag">Methodology</div>
+        <h2>Methodological Approach</h2>
+        <div class="method">
+            <div>
+                <p>My unit of analysis is moment-to-moment participation. Using multimodal interaction analysis and microethnographic discourse analysis of video, I trace how talk, gesture, gaze, objects, and institutional texts coordinate what participants can do next, and what becomes recordable as evidence of competence.</p>
+                <p>Fine-grained video analysis of this kind remains uncommon in library and information science, where it offers a distinct way to make multilingual family learning legible to institutions.</p>
+                <div class="method-tags">Multimodal interaction analysis <span class="sep">&middot;</span> Microethnography <span class="sep">&middot;</span> Video-based analysis</div>
+            </div>
+            <div class="transcript-panel"><img src="transcript.png" alt="Multimodal transcript of museum family interaction"><div class="visual-cap">A multimodal transcript showing how talk, gesture, gaze, and exhibit text coordinate family meaning-making.</div></div>
+        </div>
     </section>
 
     <footer>
