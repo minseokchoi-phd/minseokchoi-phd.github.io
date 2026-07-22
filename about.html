@@ -21,15 +21,15 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;b
 h1{max-width:12em;margin:0;font:400 clamp(45px,7vw,76px)/1.03 var(--display);letter-spacing:-.025em;color:var(--blue)}
 .intro{max-width:42em;margin:25px 0 0;font-size:21px;line-height:1.68;color:var(--soft)}
 .map-wrap{position:relative;margin:52px 0 68px;perspective:1100px}
-.map-stage{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.16);border-radius:24px;background:radial-gradient(circle at 72% 38%,rgba(255,95,5,.13),transparent 22%),radial-gradient(circle at 25% 55%,rgba(82,142,177,.25),transparent 35%),linear-gradient(145deg,#0e213d,#18375c 55%,#0c1e36);box-shadow:0 30px 70px rgba(19,41,75,.24);transform:rotateX(2deg);transform-origin:center bottom}
-.map-stage:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 25%,rgba(255,255,255,.07) 46%,transparent 63%)}
+.map-stage{position:relative;overflow:hidden;border:1px solid rgba(19,41,75,.14);border-radius:24px;background:radial-gradient(circle at 75% 30%,rgba(255,255,255,.72),transparent 28%),radial-gradient(circle at 20% 65%,rgba(105,128,91,.15),transparent 31%),linear-gradient(145deg,#f4eddf,#e5dbc8 58%,#d9d0bd);box-shadow:0 28px 65px rgba(74,62,43,.16);transform:rotateX(1.5deg);transform-origin:center bottom}
+.map-stage:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(108deg,transparent 28%,rgba(255,255,255,.25) 48%,transparent 68%)}
 .journey-map{display:block;width:100%;height:auto;min-height:400px}
-.route{fill:none;stroke:var(--orange);stroke-width:3.5;stroke-linecap:round;stroke-dasharray:9 10;filter:drop-shadow(0 0 7px rgba(255,95,5,.7))}
-.route-flight{fill:none;stroke:#ffd7c0;stroke-width:2;stroke-dasharray:5 9;opacity:.8}
-.map-grid{fill:none;stroke:rgba(255,255,255,.09);stroke-width:1}
-.land{fill:rgba(250,246,239,.08);stroke:rgba(250,246,239,.2);stroke-width:1.2}
-.point-ring{fill:rgba(255,95,5,.13);stroke:rgba(255,255,255,.78);stroke-width:1.5}.point-core{fill:var(--orange)}.map-link:hover .point-ring,.map-link:focus .point-ring{fill:rgba(255,95,5,.48);stroke:#fff;stroke-width:2.5}.map-link{outline:none}.map-city{fill:#fff;font:500 13px var(--display);letter-spacing:.02em}.map-year{fill:#b9c7d8;font:500 9px var(--mono);letter-spacing:.08em}.ocean-label{fill:rgba(255,255,255,.25);font:500 9px var(--mono);letter-spacing:.18em}
-.map-note{position:absolute;left:24px;bottom:18px;margin:0;color:rgba(255,255,255,.68);font:500 9px var(--mono);letter-spacing:.11em;text-transform:uppercase}
+.route{fill:none;stroke:var(--orange);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:.92}
+.route-flight{fill:none;stroke:var(--orange);stroke-width:2.5;stroke-linecap:round;opacity:.72}
+.contour{fill:none;stroke:rgba(19,41,75,.1);stroke-width:1.2}
+.land{fill:rgba(102,124,86,.17);stroke:rgba(19,41,75,.2);stroke-width:1.2}
+.point-ring{fill:#fff7ed;stroke:var(--orange);stroke-width:2}.point-core{fill:var(--orange)}.map-link:hover .point-ring,.map-link:focus .point-ring{fill:#ffd8c2;stroke:var(--blue);stroke-width:2.5}.map-link{outline:none}.map-city{fill:var(--blue);font:600 13px var(--display);letter-spacing:.02em}.map-year{fill:#6c655c;font:600 9px var(--mono);letter-spacing:.08em}.land-label{fill:rgba(19,41,75,.42);font:500 9px var(--mono);letter-spacing:.15em}
+.map-note{position:absolute;left:24px;bottom:18px;margin:0;color:rgba(19,41,75,.58);font:600 9px var(--mono);letter-spacing:.11em;text-transform:uppercase}
 .section-label{margin:0 0 28px;font:600 10px var(--mono);letter-spacing:.17em;text-transform:uppercase;color:var(--muted)}
 .timeline{position:relative;margin-left:14px;padding-left:53px}
 .timeline:before{content:"";position:absolute;left:10px;top:8px;bottom:12px;width:1px;background:linear-gradient(var(--orange),rgba(19,41,75,.22))}
@@ -59,14 +59,17 @@ footer{padding-top:48px;font-size:14px;color:var(--muted)}
     <svg class="journey-map" viewBox="0 0 900 420" role="img" aria-labelledby="map-title map-desc">
       <title id="map-title">A geographic and chronological scholarly journey</title>
       <desc id="map-desc">The route begins in South Korea and continues to Columbus, Ohio; Florence, South Carolina; Lafayette, Louisiana; and Champaign, Illinois.</desc>
-      <ellipse class="map-grid" cx="450" cy="210" rx="410" ry="165"/>
-      <ellipse class="map-grid" cx="450" cy="210" rx="410" ry="92"/>
-      <path class="map-grid" d="M450 45 Q350 210 450 375 M450 45 Q550 210 450 375 M125 110 Q450 210 775 110 M125 310 Q450 210 775 310"/>
+      <path class="contour" d="M18 85 C140 31 260 67 341 44 S535 24 650 66 814 75 884 39"/>
+      <path class="contour" d="M4 116 C116 66 239 101 335 76 S527 52 645 94 802 105 900 69"/>
+      <path class="contour" d="M19 342 C142 291 248 331 351 304 S557 276 663 315 812 337 884 301"/>
+      <path class="contour" d="M-8 373 C113 322 250 368 352 337 S553 308 681 349 823 366 911 332"/>
+      <path class="contour" d="M290 9 C322 84 294 147 325 214 S363 331 337 421"/>
+      <path class="contour" d="M727 -5 C686 71 720 141 687 211 S649 335 680 425"/>
       <path class="land" d="M36 172 L83 126 151 116 203 145 188 193 132 220 83 206Z"/>
       <path class="land" d="M417 88 L505 69 598 86 678 122 716 171 674 206 635 194 606 231 541 241 511 288 448 300 403 263 421 218 383 181Z"/>
-      <text class="ocean-label" x="257" y="234">PACIFIC</text>
-      <text class="ocean-label" x="742" y="259">ATLANTIC</text>
-      <path class="route-flight" d="M122 184 C240 23 350 22 490 121"/>
+      <text class="land-label" x="70" y="151">SOUTH KOREA</text>
+      <text class="land-label" x="530" y="112">UNITED STATES</text>
+      <path class="route-flight" d="M122 184 C244 125 357 112 490 121"/>
       <path class="route" d="M490 121 C535 151 567 202 581 239 C535 278 476 310 443 302 C426 240 442 171 471 142"/>
 
       <a class="map-link" href="#korea" aria-label="South Korea, 2006 to 2014"><circle class="point-ring" cx="122" cy="184" r="10"/><circle class="point-core" cx="122" cy="184" r="4"/><text class="map-city" x="65" y="211">South Korea</text><text class="map-year" x="79" y="226">2006–2014</text></a>
