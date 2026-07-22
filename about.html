@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>
 :root{--paper:#FAF6EF;--card:#fff;--ink:#23201C;--soft:#514B43;--muted:#7C7367;--blue:#13294B;--orange:#FF5F05;--line:rgba(19,41,75,.13);--display:'Fraunces',Georgia,serif;--body:'Newsreader',Georgia,serif;--mono:'IBM Plex Mono',monospace}
 *{box-sizing:border-box}
@@ -21,15 +22,17 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;b
 h1{max-width:12em;margin:0;font:400 clamp(45px,7vw,76px)/1.03 var(--display);letter-spacing:-.025em;color:var(--blue)}
 .intro{max-width:42em;margin:25px 0 0;font-size:21px;line-height:1.68;color:var(--soft)}
 .map-wrap{position:relative;margin:52px 0 68px;perspective:1100px}
-.map-stage{position:relative;overflow:hidden;border:1px solid rgba(19,41,75,.14);border-radius:24px;background:radial-gradient(circle at 75% 30%,rgba(255,255,255,.72),transparent 28%),radial-gradient(circle at 20% 65%,rgba(105,128,91,.15),transparent 31%),linear-gradient(145deg,#f4eddf,#e5dbc8 58%,#d9d0bd);box-shadow:0 28px 65px rgba(74,62,43,.16);transform:rotateX(1.5deg);transform-origin:center bottom}
-.map-stage:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(108deg,transparent 28%,rgba(255,255,255,.25) 48%,transparent 68%)}
-.journey-map{display:block;width:100%;height:auto;min-height:400px}
-.route{fill:none;stroke:var(--orange);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;opacity:.92}
-.route-flight{fill:none;stroke:var(--orange);stroke-width:2.5;stroke-linecap:round;opacity:.72}
-.contour{fill:none;stroke:rgba(19,41,75,.1);stroke-width:1.2}
-.land{fill:rgba(102,124,86,.17);stroke:rgba(19,41,75,.2);stroke-width:1.2}
-.point-ring{fill:#fff7ed;stroke:var(--orange);stroke-width:2}.point-core{fill:var(--orange)}.map-link:hover .point-ring,.map-link:focus .point-ring{fill:#ffd8c2;stroke:var(--blue);stroke-width:2.5}.map-link{outline:none}.map-city{fill:var(--blue);font:600 13px var(--display);letter-spacing:.02em}.map-year{fill:#6c655c;font:600 9px var(--mono);letter-spacing:.08em}.land-label{fill:rgba(19,41,75,.42);font:500 9px var(--mono);letter-spacing:.15em}
-.map-note{position:absolute;left:24px;bottom:18px;margin:0;color:rgba(19,41,75,.58);font:600 9px var(--mono);letter-spacing:.11em;text-transform:uppercase}
+.map-stage{position:relative;overflow:hidden;border:1px solid rgba(19,41,75,.16);border-radius:24px;background:#e9e3d8;box-shadow:0 28px 65px rgba(74,62,43,.16)}
+.journey-map{width:100%;height:520px}
+.journey-marker{display:flex!important;align-items:center;justify-content:center;width:34px!important;height:34px!important;margin:-17px 0 0 -17px!important;border:3px solid #fff;border-radius:50%;background:var(--orange);box-shadow:0 5px 16px rgba(19,41,75,.32);color:#fff;font:600 12px var(--mono)}
+.journey-marker.current{background:var(--blue);box-shadow:0 0 0 5px rgba(255,95,5,.23),0 5px 16px rgba(19,41,75,.32)}
+.leaflet-popup-content-wrapper{border-radius:13px;box-shadow:0 12px 30px rgba(19,41,75,.2);font-family:var(--body);color:var(--soft)}
+.leaflet-popup-content{margin:16px 18px;min-width:190px;font-size:15px;line-height:1.45}
+.leaflet-popup-content strong{display:block;margin-bottom:3px;font:500 18px var(--display);color:var(--blue)}
+.leaflet-popup-content span{display:block;margin-bottom:8px;font:600 9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--orange)}
+.leaflet-popup-content a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(255,95,5,.45)}
+.leaflet-control-attribution{font-size:9px!important}
+.map-key{position:absolute;z-index:500;left:18px;bottom:25px;max-width:265px;padding:12px 15px;border:1px solid rgba(19,41,75,.12);border-radius:11px;background:rgba(250,246,239,.92);box-shadow:0 8px 22px rgba(19,41,75,.13);font:500 10px/1.5 var(--mono);letter-spacing:.06em;color:var(--blue);pointer-events:none}
 .section-label{margin:0 0 28px;font:600 10px var(--mono);letter-spacing:.17em;text-transform:uppercase;color:var(--muted)}
 .timeline{position:relative;margin-left:14px;padding-left:53px}
 .timeline:before{content:"";position:absolute;left:10px;top:8px;bottom:12px;width:1px;background:linear-gradient(var(--orange),rgba(19,41,75,.22))}
@@ -40,8 +43,8 @@ h1{max-width:12em;margin:0;font:400 clamp(45px,7vw,76px)/1.03 var(--display);let
 .stop-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(190px,.65fr);gap:38px;margin-top:18px}.stop p{max-width:39em;margin:0;color:var(--soft)}.stop-aside{align-self:start;border-left:3px solid var(--orange);padding:3px 0 3px 18px}.stop-aside strong{display:block;margin-bottom:7px;font:500 13px var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}.stop-aside span{display:block;font-size:15px;line-height:1.55;color:var(--muted)}
 .coda{margin-top:56px;padding:42px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.58)}.coda p{max-width:39em;margin:0;font:370 clamp(24px,3.4vw,34px)/1.45 var(--display);color:var(--blue)}
 footer{padding-top:48px;font-size:14px;color:var(--muted)}
-@media(max-width:760px){.shell{padding:42px 22px 48px}.site-nav{align-items:flex-start;padding-bottom:36px}.nav-links{justify-content:flex-end;gap:12px 16px}.map-wrap{margin-top:38px}.journey-map{min-height:330px}.map-city{font-size:11px}.map-year{font-size:8px}.map-note{display:none}.timeline{padding-left:39px}.timeline:before{left:6px}.stop:before{left:-39px}.stop-grid{grid-template-columns:1fr;gap:18px}.coda{padding:28px 24px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.map-stage{transform:none}}
+@media(max-width:760px){.shell{padding:42px 22px 48px}.site-nav{align-items:flex-start;padding-bottom:36px}.nav-links{justify-content:flex-end;gap:12px 16px}.map-wrap{margin-top:38px}.journey-map{height:430px}.map-key{left:10px;bottom:22px;max-width:210px}.timeline{padding-left:39px}.timeline:before{left:6px}.stop:before{left:-39px}.stop-grid{grid-template-columns:1fr;gap:18px}.coda{padding:28px 24px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -56,29 +59,8 @@ footer{padding-top:48px;font-size:14px;color:var(--muted)}
 
 <div class="map-wrap" aria-label="Map of Min-Seok Choi's scholarly journey">
   <div class="map-stage">
-    <svg class="journey-map" viewBox="0 0 900 420" role="img" aria-labelledby="map-title map-desc">
-      <title id="map-title">A geographic and chronological scholarly journey</title>
-      <desc id="map-desc">The route begins in South Korea and continues to Columbus, Ohio; Florence, South Carolina; Lafayette, Louisiana; and Champaign, Illinois.</desc>
-      <path class="contour" d="M18 85 C140 31 260 67 341 44 S535 24 650 66 814 75 884 39"/>
-      <path class="contour" d="M4 116 C116 66 239 101 335 76 S527 52 645 94 802 105 900 69"/>
-      <path class="contour" d="M19 342 C142 291 248 331 351 304 S557 276 663 315 812 337 884 301"/>
-      <path class="contour" d="M-8 373 C113 322 250 368 352 337 S553 308 681 349 823 366 911 332"/>
-      <path class="contour" d="M290 9 C322 84 294 147 325 214 S363 331 337 421"/>
-      <path class="contour" d="M727 -5 C686 71 720 141 687 211 S649 335 680 425"/>
-      <path class="land" d="M36 172 L83 126 151 116 203 145 188 193 132 220 83 206Z"/>
-      <path class="land" d="M417 88 L505 69 598 86 678 122 716 171 674 206 635 194 606 231 541 241 511 288 448 300 403 263 421 218 383 181Z"/>
-      <text class="land-label" x="70" y="151">SOUTH KOREA</text>
-      <text class="land-label" x="530" y="112">UNITED STATES</text>
-      <path class="route-flight" d="M122 184 C244 125 357 112 490 121"/>
-      <path class="route" d="M490 121 C535 151 567 202 581 239 C535 278 476 310 443 302 C426 240 442 171 471 142"/>
-
-      <a class="map-link" href="#korea" aria-label="South Korea, 2006 to 2014"><circle class="point-ring" cx="122" cy="184" r="10"/><circle class="point-core" cx="122" cy="184" r="4"/><text class="map-city" x="65" y="211">South Korea</text><text class="map-year" x="79" y="226">2006–2014</text></a>
-      <a class="map-link" href="#ohio" aria-label="Columbus, Ohio, 2014 to 2022"><circle class="point-ring" cx="490" cy="121" r="10"/><circle class="point-core" cx="490" cy="121" r="4"/><text class="map-city" x="504" y="105">Columbus</text><text class="map-year" x="504" y="119">2014–2022</text></a>
-      <a class="map-link" href="#carolina" aria-label="Florence, South Carolina, 2022 to 2023"><circle class="point-ring" cx="581" cy="239" r="10"/><circle class="point-core" cx="581" cy="239" r="4"/><text class="map-city" x="596" y="240">Florence</text><text class="map-year" x="596" y="254">2022–2023</text></a>
-      <a class="map-link" href="#louisiana" aria-label="Lafayette, Louisiana, 2023 to 2026"><circle class="point-ring" cx="443" cy="302" r="10"/><circle class="point-core" cx="443" cy="302" r="4"/><text class="map-city" x="371" y="329">Lafayette</text><text class="map-year" x="386" y="344">2023–2026</text></a>
-      <a class="map-link" href="#illinois" aria-label="Champaign, Illinois, 2026 to present"><circle class="point-ring" cx="471" cy="142" r="10"/><circle class="point-core" cx="471" cy="142" r="4"/><text class="map-city" x="381" y="145">Champaign</text><text class="map-year" x="397" y="160">2026–present</text></a>
-    </svg>
-    <p class="map-note">Select a place to continue the story</p>
+    <div id="journey-map" class="journey-map" role="img" aria-label="Interactive map tracing a journey from South Korea to Ohio, South Carolina, Louisiana, and Illinois"></div>
+    <div class="map-key">Five places · one evolving inquiry<br>Select a marker to explore</div>
   </div>
 </div>
 
@@ -120,5 +102,27 @@ footer{padding-top:48px;font-size:14px;color:var(--muted)}
 </main>
 <footer>&copy; 2026 Min-Seok Choi</footer>
 </div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const places=[
+  {n:1,id:'korea',name:'South Korea',years:'2006–2014',focus:'Classroom teaching and the first questions about literacy',coords:[37.5665,126.978]},
+  {n:2,id:'ohio',name:'Columbus, Ohio',years:'2014–2022',focus:'Multilingual family learning and multimodal interaction',coords:[39.9612,-82.9988]},
+  {n:3,id:'carolina',name:'Florence, South Carolina',years:'2022–2023',focus:'Teacher education and asset-based noticing',coords:[34.1954,-79.7626]},
+  {n:4,id:'louisiana',name:'Lafayette, Louisiana',years:'2023–2026',focus:'FLOA and humanizing teacher education',coords:[30.2241,-92.0198]},
+  {n:5,id:'illinois',name:'Champaign, Illinois',years:'2026–present',focus:'Early literacies, libraries, and public institutions',coords:[40.1164,-88.2434]}
+];
+const map=L.map('journey-map',{scrollWheelZoom:false,worldCopyJump:true,zoomControl:true});
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{
+  attribution:'&copy; OpenStreetMap contributors &copy; CARTO',
+  subdomains:'abcd',
+  maxZoom:19
+}).addTo(map);
+const line=L.polyline(places.map(p=>p.coords),{color:'#FF5F05',weight:3,opacity:.78,lineCap:'round',lineJoin:'round'}).addTo(map);
+places.forEach((p,i)=>{
+  const icon=L.divIcon({className:'journey-marker'+(i===places.length-1?' current':''),html:String(p.n),iconSize:[34,34]});
+  L.marker(p.coords,{icon,title:p.name}).addTo(map).bindPopup('<strong>'+p.name+'</strong><span>'+p.years+'</span>'+p.focus+'<br><a href="#'+p.id+'">Continue the story</a>');
+});
+map.fitBounds(line.getBounds(),{padding:[45,45]});
+</script>
 </body>
 </html>
