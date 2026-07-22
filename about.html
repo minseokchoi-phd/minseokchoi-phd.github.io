@@ -3,117 +3,118 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Min-Seok Choi's scholarly journey across Korea and the United States.">
 <title>About | Min-Seok Choi</title>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap" rel="stylesheet">
 <style>
-body{
-max-width:900px;
-margin:0 auto;
-padding:60px 24px;
-font-family:Georgia, serif;
-line-height:1.9;
-background:#FAF6EF;
-color:#23201C;
-}
-
-h1{
-font-size:3rem;
-margin-bottom:24px;
-color:#13294B;
-}
-
-h2{
-margin-top:48px;
-color:#13294B;
-}
-
-img{
-width:100%;
-border-radius:14px;
-margin:24px 0;
-}
-
-.back{
-display:inline-block;
-margin-bottom:40px;
-text-decoration:none;
-color:#13294B;
-font-weight:600;
-}
-
-.lead{
-font-size:1.25rem;
-color:#4a433d;
-}
-
-.caption{
-font-size:14px;
-font-style:italic;
-color:#6f665c;
-margin-top:-8px;
-margin-bottom:28px;
-}
-
-.site-nav{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-bottom:46px}.brand{font-size:21px;font-weight:bold;color:#13294B;text-decoration:none}.nav-links{display:flex;flex-wrap:wrap;gap:22px}.nav-links a{font-size:12px;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;color:#13294B;text-decoration:none;border-bottom:2px solid transparent;line-height:1.5}.nav-links a:hover,.nav-links a[aria-current="page"]{border-color:#FF5F05}@media(max-width:700px){.site-nav{align-items:flex-start;padding-bottom:30px}.nav-links{justify-content:flex-end;gap:12px 16px}}
+:root{--paper:#FAF6EF;--card:#fff;--ink:#23201C;--soft:#514B43;--muted:#7C7367;--blue:#13294B;--orange:#FF5F05;--line:rgba(19,41,75,.13);--display:'Fraunces',Georgia,serif;--body:'Newsreader',Georgia,serif;--mono:'IBM Plex Mono',monospace}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;border-top:6px solid var(--orange);background:var(--paper);color:var(--ink);font:380 20px/1.78 var(--body);-webkit-font-smoothing:antialiased}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.shell{position:relative;z-index:1;max-width:1080px;margin:auto;padding:70px 32px 64px}
+.site-nav{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-bottom:54px}.brand{font:500 21px var(--display);color:var(--blue);text-decoration:none}.nav-links{display:flex;flex-wrap:wrap;gap:22px}.nav-links a{font:500 12px var(--display);letter-spacing:.13em;text-transform:uppercase;color:var(--blue);text-decoration:none;border-bottom:2px solid transparent}.nav-links a:hover,.nav-links a[aria-current=page]{border-color:var(--orange)}
+.eyebrow{margin:0 0 13px;font:600 10px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+h1{max-width:12em;margin:0;font:400 clamp(45px,7vw,76px)/1.03 var(--display);letter-spacing:-.025em;color:var(--blue)}
+.intro{max-width:42em;margin:25px 0 0;font-size:21px;line-height:1.68;color:var(--soft)}
+.map-wrap{position:relative;margin:52px 0 68px;perspective:1100px}
+.map-stage{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.16);border-radius:24px;background:radial-gradient(circle at 72% 38%,rgba(255,95,5,.13),transparent 22%),radial-gradient(circle at 25% 55%,rgba(82,142,177,.25),transparent 35%),linear-gradient(145deg,#0e213d,#18375c 55%,#0c1e36);box-shadow:0 30px 70px rgba(19,41,75,.24);transform:rotateX(2deg);transform-origin:center bottom}
+.map-stage:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 25%,rgba(255,255,255,.07) 46%,transparent 63%)}
+.journey-map{display:block;width:100%;height:auto;min-height:400px}
+.route{fill:none;stroke:var(--orange);stroke-width:3.5;stroke-linecap:round;stroke-dasharray:9 10;filter:drop-shadow(0 0 7px rgba(255,95,5,.7))}
+.route-flight{fill:none;stroke:#ffd7c0;stroke-width:2;stroke-dasharray:5 9;opacity:.8}
+.map-grid{fill:none;stroke:rgba(255,255,255,.09);stroke-width:1}
+.land{fill:rgba(250,246,239,.08);stroke:rgba(250,246,239,.2);stroke-width:1.2}
+.point-ring{fill:rgba(255,95,5,.13);stroke:rgba(255,255,255,.78);stroke-width:1.5}.point-core{fill:var(--orange)}.map-link:hover .point-ring,.map-link:focus .point-ring{fill:rgba(255,95,5,.48);stroke:#fff;stroke-width:2.5}.map-link{outline:none}.map-city{fill:#fff;font:500 13px var(--display);letter-spacing:.02em}.map-year{fill:#b9c7d8;font:500 9px var(--mono);letter-spacing:.08em}.ocean-label{fill:rgba(255,255,255,.25);font:500 9px var(--mono);letter-spacing:.18em}
+.map-note{position:absolute;left:24px;bottom:18px;margin:0;color:rgba(255,255,255,.68);font:500 9px var(--mono);letter-spacing:.11em;text-transform:uppercase}
+.section-label{margin:0 0 28px;font:600 10px var(--mono);letter-spacing:.17em;text-transform:uppercase;color:var(--muted)}
+.timeline{position:relative;margin-left:14px;padding-left:53px}
+.timeline:before{content:"";position:absolute;left:10px;top:8px;bottom:12px;width:1px;background:linear-gradient(var(--orange),rgba(19,41,75,.22))}
+.stop{position:relative;padding:0 0 55px;scroll-margin-top:30px}
+.stop:last-child{padding-bottom:10px}.stop:before{content:"";position:absolute;left:-50px;top:9px;width:13px;height:13px;border:4px solid var(--paper);border-radius:50%;background:var(--orange);box-shadow:0 0 0 1px rgba(255,95,5,.45)}
+.stop-meta{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-bottom:9px}.stop-year{font:600 11px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--orange)}.stop-place{font:500 12px var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.stop h2{margin:0;font:430 clamp(29px,4vw,42px)/1.17 var(--display);letter-spacing:-.014em;color:var(--blue)}
+.stop-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(190px,.65fr);gap:38px;margin-top:18px}.stop p{max-width:39em;margin:0;color:var(--soft)}.stop-aside{align-self:start;border-left:3px solid var(--orange);padding:3px 0 3px 18px}.stop-aside strong{display:block;margin-bottom:7px;font:500 13px var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}.stop-aside span{display:block;font-size:15px;line-height:1.55;color:var(--muted)}
+.coda{margin-top:56px;padding:42px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.58)}.coda p{max-width:39em;margin:0;font:370 clamp(24px,3.4vw,34px)/1.45 var(--display);color:var(--blue)}
+footer{padding-top:48px;font-size:14px;color:var(--muted)}
+@media(max-width:760px){.shell{padding:42px 22px 48px}.site-nav{align-items:flex-start;padding-bottom:36px}.nav-links{justify-content:flex-end;gap:12px 16px}.map-wrap{margin-top:38px}.journey-map{min-height:330px}.map-city{font-size:11px}.map-year{font-size:8px}.map-note{display:none}.timeline{padding-left:39px}.timeline:before{left:6px}.stop:before{left:-39px}.stop-grid{grid-template-columns:1fr;gap:18px}.coda{padding:28px 24px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.map-stage{transform:none}}
 </style>
 </head>
-
 <body>
+<div class="shell">
+<nav class="site-nav" aria-label="Primary navigation"><a class="brand" href="index.html">Min-Seok Choi</a><div class="nav-links"><a href="index.html">Home</a><a href="about.html" aria-current="page">About</a><a href="research.html">Research Projects</a><a href="publications.html">Publications</a><a href="teaching.html">Teaching</a><a href="CV.pdf">CV</a><a href="life.html">Life</a></div></nav>
 
-<nav class="site-nav" aria-label="Primary navigation">
-<a class="brand" href="index.html">Min-Seok Choi</a>
-<div class="nav-links"><a href="index.html">Home</a><a href="about.html" aria-current="page">About</a><a href="research.html">Research Projects</a><a href="publications.html">Publications</a><a href="teaching.html">Teaching</a><a href="CV.pdf">CV</a><a href="life.html">Life</a></div>
-</nav>
+<header>
+  <p class="eyebrow">A journey through place and inquiry</p>
+  <h1>Where I have been shapes what I learn to notice.</h1>
+  <p class="intro">My trajectory moves from classrooms in South Korea to universities and communities across the United States. Each place changed not only where I worked, but also how I understood literacy, language, family learning, and the institutions that make participation visible.</p>
+</header>
 
-<h1>About</h1>
+<div class="map-wrap" aria-label="Map of Min-Seok Choi's scholarly journey">
+  <div class="map-stage">
+    <svg class="journey-map" viewBox="0 0 900 420" role="img" aria-labelledby="map-title map-desc">
+      <title id="map-title">A geographic and chronological scholarly journey</title>
+      <desc id="map-desc">The route begins in South Korea and continues to Columbus, Ohio; Florence, South Carolina; Lafayette, Louisiana; and Champaign, Illinois.</desc>
+      <ellipse class="map-grid" cx="450" cy="210" rx="410" ry="165"/>
+      <ellipse class="map-grid" cx="450" cy="210" rx="410" ry="92"/>
+      <path class="map-grid" d="M450 45 Q350 210 450 375 M450 45 Q550 210 450 375 M125 110 Q450 210 775 110 M125 310 Q450 210 775 310"/>
+      <path class="land" d="M36 172 L83 126 151 116 203 145 188 193 132 220 83 206Z"/>
+      <path class="land" d="M417 88 L505 69 598 86 678 122 716 171 674 206 635 194 606 231 541 241 511 288 448 300 403 263 421 218 383 181Z"/>
+      <text class="ocean-label" x="257" y="234">PACIFIC</text>
+      <text class="ocean-label" x="742" y="259">ATLANTIC</text>
+      <path class="route-flight" d="M122 184 C240 23 350 22 490 121"/>
+      <path class="route" d="M490 121 C535 151 567 202 581 239 C535 278 476 310 443 302 C426 240 442 171 471 142"/>
 
-<p class="lead">
-I am a literacy and information scholar interested in how children, families, educators, and community institutions make learning possible across languages, cultures, and everyday experiences.
-</p>
+      <a class="map-link" href="#korea" aria-label="South Korea, 2006 to 2014"><circle class="point-ring" cx="122" cy="184" r="10"/><circle class="point-core" cx="122" cy="184" r="4"/><text class="map-city" x="65" y="211">South Korea</text><text class="map-year" x="79" y="226">2006–2014</text></a>
+      <a class="map-link" href="#ohio" aria-label="Columbus, Ohio, 2014 to 2022"><circle class="point-ring" cx="490" cy="121" r="10"/><circle class="point-core" cx="490" cy="121" r="4"/><text class="map-city" x="504" y="105">Columbus</text><text class="map-year" x="504" y="119">2014–2022</text></a>
+      <a class="map-link" href="#carolina" aria-label="Florence, South Carolina, 2022 to 2023"><circle class="point-ring" cx="581" cy="239" r="10"/><circle class="point-core" cx="581" cy="239" r="4"/><text class="map-city" x="596" y="240">Florence</text><text class="map-year" x="596" y="254">2022–2023</text></a>
+      <a class="map-link" href="#louisiana" aria-label="Lafayette, Louisiana, 2023 to 2026"><circle class="point-ring" cx="443" cy="302" r="10"/><circle class="point-core" cx="443" cy="302" r="4"/><text class="map-city" x="371" y="329">Lafayette</text><text class="map-year" x="386" y="344">2023–2026</text></a>
+      <a class="map-link" href="#illinois" aria-label="Champaign, Illinois, 2026 to present"><circle class="point-ring" cx="471" cy="142" r="10"/><circle class="point-core" cx="471" cy="142" r="4"/><text class="map-city" x="381" y="145">Champaign</text><text class="map-year" x="397" y="160">2026–present</text></a>
+    </svg>
+    <p class="map-note">Select a place to continue the story</p>
+  </div>
+</div>
 
-<p>
-My work sits at the intersection of literacy studies, sociolinguistics, teacher education, and library and information science. Across these areas, I am interested in a common question: How do we learn to recognize forms of knowledge, participation, and competence that often go unnoticed?
-</p>
+<main>
+<p class="section-label">The trajectory</p>
+<div class="timeline">
+  <section class="stop" id="korea">
+    <div class="stop-meta"><span class="stop-year">2006–2014</span><span class="stop-place">Busan and Seoul, South Korea</span></div>
+    <h2>Learning from classrooms</h2>
+    <div class="stop-grid"><p>I began as an English language arts teacher across elementary, middle, and high school settings. Teaching made literacy concrete and relational. It showed me that students always bring histories, languages, and ways of knowing into a classroom, even when schools do not know how to recognize them. The questions that still guide my work began there: What counts as literacy, and whose competence becomes visible?</p><aside class="stop-aside"><strong>What took shape</strong><span>Early literacy</span><span>Teaching across age groups</span><span>Educational equity</span></aside></div>
+  </section>
 
-<h2>From Classroom Teacher to Researcher</h2>
+  <section class="stop" id="ohio">
+    <div class="stop-meta"><span class="stop-year">2014–2022</span><span class="stop-place">Columbus, Ohio</span></div>
+    <h2>Following learning beyond school</h2>
+    <div class="stop-grid"><p>At The Ohio State University, I moved from classroom questions into research. Graduate study in teaching and learning, work in writing across the curriculum, and family visits to museums opened new sites of inquiry. I began tracing how multilingual families make meaning through talk, gesture, gaze, objects, and institutional texts. Research in science museums and an architecture design studio taught me to see competence as something built moment by moment in interaction.</p><aside class="stop-aside"><strong>What expanded</strong><span>Multilingual family learning</span><span>Museum literacies</span><span>Professional vision</span><span>Multimodal interaction</span></aside></div>
+  </section>
 
-<p>
-Before becoming a university professor, I taught English language arts in South Korea for six years. I worked with students across elementary, middle, and high school settings. Those years continue to shape how I think about literacy, teaching, and educational equity.
-</p>
+  <section class="stop" id="carolina">
+    <div class="stop-meta"><span class="stop-year">2022–2023</span><span class="stop-place">Florence, South Carolina</span></div>
+    <h2>Turning research toward teacher learning</h2>
+    <div class="stop-grid"><p>At Francis Marion University, my first faculty appointment brought research and teacher education into closer conversation. Working with preservice teachers sharpened a practical challenge: noticing family competence does not automatically lead to equitable teaching. I became more interested in how professional learning can interrupt deficit assumptions and help educators build from the multilingual and cultural resources families already use.</p><aside class="stop-aside"><strong>What connected</strong><span>Teacher education</span><span>Community-based learning</span><span>Asset-based noticing</span></aside></div>
+  </section>
 
-<p>
-As a classroom teacher, I became increasingly interested in the experiences students brought with them into schools. I often found myself wondering why some forms of knowledge were recognized and valued while others remained invisible. Those questions eventually led me to pursue doctoral study in the United States.
-</p>
+  <section class="stop" id="louisiana">
+    <div class="stop-meta"><span class="stop-year">2023–2026</span><span class="stop-place">Lafayette, Louisiana</span></div>
+    <h2>Building a cycle of observation and redesign</h2>
+    <div class="stop-grid"><p>At the University of Louisiana at Lafayette, I developed the Family Learning Observation and Analysis cycle in literacy methods courses. Preservice teachers entered informal learning spaces, gathered evidence, analyzed family interaction, reflected on their assumptions, and redesigned instruction. Louisiana helped turn a long-standing research commitment into a pedagogical structure for learning to notice differently.</p><aside class="stop-aside"><strong>What became possible</strong><span>FLOA</span><span>Humanizing teacher education</span><span>Family and community engagement</span></aside></div>
+  </section>
 
-<h2>Language, Migration, and Family</h2>
+  <section class="stop" id="illinois">
+    <div class="stop-meta"><span class="stop-year">2026–present</span><span class="stop-place">Champaign, Illinois</span></div>
+    <h2>Extending the question into libraries</h2>
+    <div class="stop-grid"><p>At the University of Illinois Urbana-Champaign School of Information Sciences, I am carrying these questions into libraries and other public institutions. I am interested in how storytimes, collections, program designs, and professional routines shape what multilingual participation can look like. The setting is new, but the throughline remains: helping institutions recognize, sustain, and design for the competence that children and families already bring.</p><aside class="stop-aside"><strong>Where it is going</strong><span>Early literacies</span><span>Library and family partnerships</span><span>Equitable public programs</span><span>Interactional noticing</span></aside></div>
+  </section>
+</div>
 
-<p>
-My move to the United States introduced new questions about language, identity, and belonging. As an immigrant, multilingual speaker, and later a parent of bilingual children, I became increasingly interested in how families navigate educational institutions across languages and cultures.
-</p>
-
-<p>
-Many of the questions that drive my scholarship emerged from everyday experiences: conversations in museums, visits to libraries, interactions in classrooms, and family moments that revealed how learning happens beyond formal schooling.
-</p>
-
-<h2>Why Museums and Libraries?</h2>
-
-<p>
-Some of the most important educational experiences occur outside schools. Museums, libraries, and community spaces provide opportunities for children and families to explore ideas, ask questions, tell stories, and build knowledge together.
-</p>
-
-<p>
-These settings have become central to my research because they reveal forms of participation that are often overlooked in traditional educational contexts. They also offer possibilities for imagining more inclusive and humanizing institutions.
-</p>
-
-<h2>Beyond Academia</h2>
-
-<p>
-Outside of research and teaching, I enjoy exploring museums, libraries, parks, and community spaces with my family. Many of the ideas that inspire my scholarship begin in these everyday experiences.
-</p>
-
-<p>
-I continue to see scholarship as a collaborative endeavor shaped by conversations with children, families, educators, librarians, and community members. My hope is that research can contribute not only to academic knowledge, but also to more equitable opportunities for participation and belonging.
-</p>
-
+<section class="coda"><p>The route is not simply a sequence of moves. Each place remains present in the questions I ask, the methods I use, and the kinds of institutions I hope research can help us imagine.</p></section>
+</main>
+<footer>&copy; 2026 Min-Seok Choi</footer>
+</div>
 </body>
 </html>
