@@ -71,36 +71,9 @@
         .hero { padding-bottom: 4px; }
         .hero-grid {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(220px, 260px);
-            gap: clamp(40px, 5vw, 60px);
-            align-items: center;
+            grid-template-columns: minmax(0, 1fr);
         }
         .hero-copy { min-width: 0; }
-        .hero-portrait {
-            position: relative;
-            width: 100%;
-            max-width: 260px;
-            margin: 0;
-            justify-self: end;
-        }
-        .hero-portrait::before {
-            content: "";
-            position: absolute;
-            inset: 14px -14px -14px 14px;
-            z-index: -1;
-            border-radius: 18px;
-            background: rgba(255, 95, 5, 0.12);
-        }
-        .hero-portrait img {
-            width: 100%;
-            aspect-ratio: 4 / 4.7;
-            object-fit: cover;
-            object-position: center 31%;
-            display: block;
-            border-radius: 18px;
-            border: 1px solid var(--hairline);
-            box-shadow: 0 20px 44px rgba(19, 41, 75, 0.13);
-        }
         h1 { margin: 0; font-family: var(--serif-display); font-weight: 400; font-size: clamp(46px, 7.5vw, 72px); line-height: 1.02; letter-spacing: -0.02em; color: var(--illini-blue); }
         .korean-name { margin-top: 10px; font-family: 'Noto Serif KR', 'Apple SD Gothic Neo', 'Malgun Gothic', serif; font-size: clamp(20px, 2.4vw, 26px); font-weight: 500; letter-spacing: 0.08em; color: var(--ink-soft); }
         .subtitle { margin-top: 16px; font-size: 18px; line-height: 1.55; color: var(--muted); }
@@ -251,15 +224,11 @@
         footer { padding-top: 40px; font-size: 14px; letter-spacing: 0.02em; color: var(--muted); }
 
         @media (max-width: 860px) {
-            .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(200px, 240px); gap: 30px; }
-            .hero-portrait { max-width: 240px; }
             .method { grid-template-columns: 1fr; gap: 30px; }
         }
         @media (max-width: 720px) {
             .container { padding: 48px 22px 48px; }\n            .site-nav { align-items:flex-start; padding-bottom:30px; }\n            .nav-links { justify-content:flex-end; gap:12px 16px; }
             body { font-size: 18.5px; }
-            .hero-grid { grid-template-columns: 1fr; gap: 32px; }
-            .hero-portrait { width: min(68vw, 230px); max-width: 230px; margin: 0 auto; justify-self: center; }
             section { padding: 44px 0; }
             .cards { grid-template-columns: 1fr; }
             .beyond-row { grid-template-columns: 1fr; gap: 7px; padding: 20px 2px; }
@@ -309,7 +278,7 @@
     <div class="nav-links"><a href="about.html">About</a><a href="research.html">Research</a><a href="publications.html">Publications</a><a href="teaching.html">Teaching</a><a href="CV.pdf">CV</a><a href="life.html">Life</a></div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO: text-only layout -->
 <header class="hero">
     <div class="hero-grid">
         <div class="hero-copy">
@@ -329,13 +298,6 @@
                 <a href="https://orcid.org/0000-0002-1214-9799" target="_blank" rel="noopener">ORCID</a>
             </div>
         </div>
-        <figure class="hero-portrait">
-            <img src="min-seok-headshot.webp"
-                 alt="Portrait of Min-Seok Choi"
-                 width="900"
-                 height="1200"
-                 fetchpriority="high">
-        </figure>
     </div>
 </header>
 
