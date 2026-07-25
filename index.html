@@ -46,10 +46,10 @@
         .container { position: relative; z-index: 1; max-width: 1040px; margin: 0 auto; padding: 76px 32px 64px; }
 
         @keyframes focusin {
-            from { opacity: 0; transform: translateY(16px); filter: blur(9px); }
-            to   { opacity: 1; transform: none;            filter: blur(0); }
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: none; }
         }
-        .container > * { animation: focusin 1s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+        .container > * { animation: focusin 0.72s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
         .container > *:nth-child(1) { animation-delay: 0.04s; }
         .container > *:nth-child(2) { animation-delay: 0.16s; }
         .container > *:nth-child(3) { animation-delay: 0.28s; }
@@ -61,7 +61,6 @@
 
         /* global navigation */
         .site-nav { display:flex; justify-content:space-between; align-items:center; gap:24px; padding-bottom:50px; }
-        .site-nav.home-nav { justify-content: flex-end; }
         .brand { font-family:var(--serif-display); font-size:21px; font-weight:500; color:var(--illini-blue); text-decoration:none; }
         .nav-links { display:flex; flex-wrap:wrap; gap:22px; }
         .nav-links a { font-family:var(--serif-display); font-size:12px; font-weight:500; letter-spacing:.13em; text-transform:uppercase; color:var(--illini-blue); text-decoration:none; border-bottom:2px solid transparent; }
@@ -88,6 +87,9 @@
         .section-head h2 { margin: 0; font-family: var(--serif-display); font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--illini-blue); }
         .section-head h2::before { content: ""; display: block; width: 22px; height: 3px; margin-bottom: 12px; background: var(--illini-orange); }
         .section-sub { margin: 14px 0 0 0; font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 46em; }
+        .spotlight-content { max-width: 700px; margin: 0 auto; }
+        .spotlight-content img { width: 100%; display: block; border-radius: 14px; border: 1px solid var(--hairline); }
+        .spotlight-content .section-sub { max-width: none; margin-top: 14px; }
 
         /* trajectory */
         .narrative .lead { font-family: var(--serif-display); font-weight: 360; font-size: clamp(23px, 3vw, 30px); line-height: 1.4; letter-spacing: -0.012em; color: var(--ink); max-width: 20em; margin: 0 0 26px 0; }
@@ -264,8 +266,9 @@
 <div class="container">
 
 <!-- GLOBAL NAVIGATION -->
-<nav class="site-nav home-nav" aria-label="Primary navigation">
-    <div class="nav-links"><a href="index.html" aria-current="page">Home</a><a href="about.html">About</a><a href="research.html">Research Projects</a><a href="publications.html">Publications</a><a href="teaching.html">Teaching</a><a href="CV.pdf">CV</a><a href="life.html">Life</a><a href="mailto:minseokc@illinois.edu?subject=Website%20inquiry">Email</a></div>
+<nav class="site-nav" aria-label="Primary navigation">
+    <a class="brand" href="index.html" aria-current="page">Min-Seok Choi</a>
+    <div class="nav-links"><a href="about.html">About</a><a href="research.html">Research</a><a href="publications.html">Publications</a><a href="teaching.html">Teaching</a><a href="CV.pdf">CV</a><a href="life.html">Life</a></div>
 </nav>
 
 <!-- HERO -->
@@ -278,7 +281,7 @@
         University of Illinois Urbana-Champaign
     </div>
     <p class="keywords">
-        Early literacies <span class="sep">&middot;</span> Multilingual family learning <span class="sep">&middot;</span> Humanizing education <span class="sep">&middot;</span> Social justice <span class="sep">&middot;</span> Multimodal interaction analysis
+        Early literacies <span class="sep">&middot;</span> Multilingual family learning <span class="sep">&middot;</span> Humanizing education <span class="sep">&middot;</span> Multimodal interaction analysis
     </p>
     <div class="profile-label">Scholarly profiles</div>
     <div class="links">
@@ -291,14 +294,11 @@
     <div class="section-head">
         <h2>Research Spotlight</h2>
     </div>
-
-    <img src="research-spotlight-interaction-drawing.webp"
-     alt="Anonymous line drawing of a multilingual family jointly pointing at a museum exhibit"
-     style="width:70%; max-width:700px; border-radius:14px; border:1px solid rgba(19,41,75,0.12); display:block; margin:0 auto;">
-        
-   <p class="section-sub" style="margin-top:14px;">
-How do multilingual families make meaning together? This interaction captures a moment of collaborative sense-making through talk, gesture, and shared attention in a science museum.
-</p>
+    <div class="spotlight-content">
+        <img src="research-spotlight-interaction-drawing.webp"
+             alt="Anonymous line drawing of a multilingual family jointly pointing at a museum exhibit">
+        <p class="section-sub">How do multilingual families make meaning together? This interaction captures a moment of collaborative sense-making through talk, gesture, and shared attention in a science museum.</p>
+    </div>
 </section>
 
 <!-- RESEARCH PROGRAM -->
