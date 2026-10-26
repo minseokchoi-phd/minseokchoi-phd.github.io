@@ -19,9 +19,11 @@
     .journal-intro{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:start}.journal-intro .lead{margin:0;font:400 clamp(25px,3vw,34px)/1.4 var(--display);color:var(--blue)}.journal-intro .aside{margin:4px 0 0;padding-left:18px;border-left:3px solid var(--orange);font-size:16px;line-height:1.65;color:var(--soft)}
     .entries{position:relative;margin-top:4px}.entries:before{content:"";position:absolute;top:7px;bottom:0;left:106px;width:1px;background:var(--line)}.entry{display:grid;grid-template-columns:82px 1fr;gap:50px;position:relative;padding:10px 0 76px}.entry:last-child{padding-bottom:10px}.entry:before{content:"";position:absolute;left:101px;top:17px;width:11px;height:11px;border:3px solid var(--paper);border-radius:50%;background:var(--orange);box-shadow:0 0 0 1px var(--orange)}.entry-date{padding-top:2px;font:600 11px/1.5 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--muted);text-align:right}.entry-card{min-width:0}.entry-place{margin:0 0 9px;font:600 11px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--orange)}.entry h2{margin:0 0 22px;max-width:16em;font:400 clamp(34px,5vw,52px)/1.08 var(--display);letter-spacing:-.02em;color:var(--blue)}.entry-figure{margin:0 0 27px;display:grid;grid-template-columns:minmax(0,560px) 1fr;gap:22px;align-items:end}.entry-figure img{display:block;width:100%;max-height:680px;object-fit:cover;object-position:center;border-radius:5px;box-shadow:0 18px 40px rgba(19,41,75,.12)}.entry-figure figcaption{padding-bottom:4px;font:500 10px/1.55 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}.entry-copy{max-width:36em}.entry-copy p{margin:0 0 17px;font-size:19px;line-height:1.72;color:var(--soft)}.entry-copy p:last-child{margin-bottom:0}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:23px}.tag{padding:5px 9px;border:1px solid var(--line);border-radius:999px;font:500 9px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--blue);background:rgba(255,255,255,.45)}
     .field-gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 28px}.field-gallery figure{position:relative;margin:0;min-height:0;overflow:hidden;border-radius:5px;background:var(--blue);box-shadow:0 16px 34px rgba(19,41,75,.12)}.field-gallery .gallery-main{grid-column:1 / -1}.field-gallery img{display:block;width:100%;height:100%;min-height:280px;object-fit:cover}.field-gallery .gallery-main img{height:auto;min-height:0;margin-bottom:-58px;transform:translateY(-58px)}.field-gallery figcaption{position:absolute;left:12px;bottom:12px;padding:6px 9px;border-radius:3px;background:rgba(19,41,75,.86);color:#fff;font:500 9px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+    .stl-gallery{display:grid;grid-template-columns:1fr 1fr;gap:20px 16px;margin:0 0 28px;align-items:start}.stl-gallery figure{margin:0;min-width:0}.stl-gallery .gallery-main{grid-column:1 / -1}.stl-photo{display:block;aspect-ratio:4/3;overflow:hidden;border-radius:5px;background:#eee8de;box-shadow:0 12px 28px rgba(19,41,75,.1)}.stl-gallery img{display:block;width:100%;height:100%;object-fit:contain}.stl-gallery figcaption{margin-top:10px;font:500 10px/1.55 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}.stl-photo:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+    @media(max-width:560px){.stl-gallery{grid-template-columns:1fr;gap:24px}.stl-gallery .gallery-main{grid-column:auto}.stl-photo{aspect-ratio:auto}.stl-gallery img{height:auto}}
     .continuing-note{display:grid;grid-template-columns:1fr 1.2fr;gap:50px;align-items:start}.continuing-note h2{margin:0;font:400 clamp(30px,4vw,44px)/1.15 var(--display);color:var(--blue)}.continuing-note p{margin:0;font-size:18px;line-height:1.72;color:var(--soft)}
     footer{display:flex;justify-content:space-between;gap:24px;margin-top:24px;padding-top:25px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}footer a{color:var(--blue);text-decoration:none}
-    @media(max-width:760px){.shell{padding:38px 22px 46px}.site-nav{align-items:flex-start;padding-bottom:30px}.nav-links{justify-content:flex-end;gap:12px 16px}.journal-intro,.continuing-note{grid-template-columns:1fr;gap:24px}.entries:before{left:7px}.entry{grid-template-columns:1fr;gap:14px;padding-left:32px;padding-bottom:64px}.entry:before{left:2px;top:17px}.entry-date{text-align:left}.entry-figure{grid-template-columns:1fr;gap:10px}.entry-figure figcaption{order:-1}.entry-copy p{font-size:18px}.field-gallery img{min-height:190px}.field-gallery .gallery-main img{min-height:0}.beyond-row{grid-template-columns:1fr;gap:7px}.family-library{padding:22px 16px}.book-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 12px}.history-grid{grid-template-columns:1fr}.history-book{grid-template-columns:78px 1fr}.history-book img{width:78px}}
+    @media(max-width:760px){.shell{padding:38px 22px 46px}.site-nav{align-items:flex-start;padding-bottom:30px}.nav-links{justify-content:flex-end;gap:12px 16px}.journal-intro,.continuing-note{grid-template-columns:1fr;gap:24px}.entries:before{left:7px}.entry{grid-template-columns:1fr;gap:14px;padding-left:32px;padding-bottom:64px}.entry:before{left:2px;top:17px}.entry-date{text-align:left}.entry-figure{grid-template-columns:minmax(0,1fr);gap:10px}.entry-figure figcaption{order:-1}.entry-copy p{font-size:18px}.field-gallery img{min-height:190px}.field-gallery .gallery-main img{min-height:0}.beyond-row{grid-template-columns:1fr;gap:7px}.family-library{padding:22px 16px}.book-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 12px}.history-grid{grid-template-columns:1fr}.history-book{grid-template-columns:78px 1fr}.history-book img{width:78px}}
   
 /* persistent email contact */
 .email-fab {
@@ -61,6 +63,31 @@
     <section aria-labelledby="recent-notes">
       <div class="section-head"><h2 id="recent-notes">Recent Notes</h2></div>
       <div class="entries">
+        <article class="entry" id="st-louis-family-outings">
+          <time class="entry-date" datetime="2026-10-11">Oct 11–12<br>2026</time>
+          <div class="entry-card">
+            <p class="entry-place">St. Louis · Family outings</p>
+            <h2>Trying, reading, and making in St. Louis</h2>
+            <div class="stl-gallery" aria-label="Scenes from our St. Louis family trip">
+              <figure class="gallery-main">
+                <a class="stl-photo" href="images/st-louis-zoo-reading-2026.jpg" aria-label="View full photo of reading about cheetahs together"><img src="images/st-louis-zoo-reading-2026.jpg" alt="Two children seen from behind looking at an illustrated cheetah information board at the zoo" width="1600" height="1200" loading="lazy" decoding="async"></a>
+                <figcaption>Reading about cheetahs together</figcaption>
+              </figure>
+              <figure>
+                <a class="stl-photo" href="images/st-louis-science-center-2026.jpg" aria-label="View full photo of trying a hands-on exhibit together"><img src="images/st-louis-science-center-2026.jpg" alt="A father and two children trying a large wheel exhibit at the science center, with the children facing the exhibit" width="1200" height="1600" loading="lazy" decoding="async"></a>
+                <figcaption>Trying a hands-on exhibit together</figcaption>
+              </figure>
+              <figure>
+                <a class="stl-photo" href="images/st-louis-garden-making-2026.jpg" aria-label="View full photo of drawing and writing at the garden"><img src="images/st-louis-garden-making-2026.jpg" alt="Two children and an adult drawing and writing at the botanical garden’s Tree of Inspiration activity station" width="1600" height="1200" loading="lazy" decoding="async"></a>
+                <figcaption>Drawing and writing at the garden</figcaption>
+              </figure>
+            </div>
+            <div class="entry-copy">
+              <p>On our St. Louis trip, we tried a hands-on exhibit at the science center, read about cheetahs at the zoo, and stopped to draw and write at the botanical garden.</p>
+            </div>
+            <div class="tags" aria-label="Themes"><span class="tag">Family outings</span><span class="tag">Reading together</span><span class="tag">Making together</span></div>
+          </div>
+        </article>
         <article class="entry">
           <time class="entry-date" datetime="2026-08-05">Aug 5<br>2026</time>
           <div class="entry-card">
@@ -153,3 +180,4 @@
 
 </body>
 </html>
+
