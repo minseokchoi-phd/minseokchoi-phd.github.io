@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Research &mdash; Min-Seok Choi</title>
+    <meta name="description" content="Current projects on children's library encounters and multilingual family learning with AI, alongside research foundations in museums, design studios, and teacher education.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,8 +79,18 @@
         .detail { padding: 52px 0; border-top: 1px solid var(--hairline); scroll-margin-top: 28px; }
         .detail .tag { font-family: var(--serif-display); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.18em; color: var(--illini-orange); }
         .detail .tag::before { content: ""; display: inline-block; width: 20px; height: 3px; background: var(--illini-orange); margin-right: 12px; vertical-align: middle; }
-        .detail h2 { margin: 16px 0 0 0; font-family: var(--serif-display); font-weight: 420; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.18; letter-spacing: -0.015em; color: var(--illini-blue); transition: color 0.3s ease; }
-        .detail:target h2 { color: var(--illini-orange); }
+        .detail h2, .detail h3 { margin: 16px 0 0 0; font-family: var(--serif-display); font-weight: 420; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.18; letter-spacing: -0.015em; color: var(--illini-blue); transition: color 0.3s ease; }
+        .detail:target h2, .detail:target h3 { color: var(--illini-blue); }
+        .project-group-head { padding: 48px 0 28px; scroll-margin-top: 28px; }
+        .project-group-head h2 { margin: 0; font-family: var(--serif-display); font-size: clamp(28px, 4vw, 38px); font-weight: 420; line-height: 1.2; color: var(--illini-blue); }
+        .project-group-head p { margin: 16px 0 0; font-size: 18px; line-height: 1.7; color: var(--ink-soft); }
+        .detail .project-state { margin-top: 24px; padding: 12px 16px; border-left: 3px solid var(--illini-orange); background: rgba(19,41,75,.04); font-size: 16px; line-height: 1.6; color: var(--illini-blue); }
+        .project-subtitle { display: block; margin-top: 10px; font-size: .68em; line-height: 1.45; font-weight: 380; }
+        .project-group-head .as-of { font-size: 14px; color: var(--ink-soft); }
+        .anchor-alias { display: block; scroll-margin-top: 28px; }
+        .story-link { color: var(--illini-blue); text-decoration: underline; text-underline-offset: 4px; }
+        .story-link:hover { text-decoration-color: var(--illini-orange); }
+        a:focus-visible { outline: 2px solid var(--illini-blue); outline-offset: 5px; }
         .project-image {
             width: 100%; max-height: 390px; display: block; object-fit: cover;
             margin: 26px 0 4px; border: 1px solid var(--hairline); border-radius: 14px;
@@ -138,6 +149,8 @@
 }
 @media (prefers-reduced-motion: reduce) { .email-fab { transition: none; } }
 
+
+@media (max-width: 560px) { .site-nav { flex-direction: column; align-items: flex-start; gap: 18px; } .site-nav .brand { white-space: nowrap; } .site-nav .nav-links { justify-content: flex-start; } }
 </style>
 </head>
 
@@ -149,21 +162,54 @@
 
     <header class="page-head reveal">
         <div class="kicker">Research</div>
-        <h1>Four strands, one question</h1>
+        <h1>Research &amp; Projects</h1>
         <p class="intro">How do people, and the institutions around them, learn to see competence?</p>
-        <nav class="toc">
-            <a href="#museums">Science Museums</a>
-            <a href="#architecture">Design Studio</a>
-            <a href="#floa">FLOA</a>
-            <a href="#library">Library Storytime</a>
+        <nav class="toc" aria-label="Research sections">
+            <a href="#current-projects">Current Projects</a>
+            <a href="#foundations">Research Foundations</a>
             <a href="#methodology">Methodology</a>
         </nav>
     </header>
 
+    <div class="project-group-head" id="current-projects">
+        <h2>Current Projects</h2>
+        <p>My current work extends research on multilingual family learning and professional vision into everyday library encounters and family interaction with generative AI.</p>
+        <p class="as-of">Project and application status as of October 26, 2026.</p>
+    </div>
+
+    <article class="detail" id="imls" aria-labelledby="imls-title">
+        <span class="anchor-alias" id="library"></span>
+        <div class="tag">Children's information practices &middot; Public libraries</div>
+        <h3 id="imls-title">Finding Books Together<span class="project-subtitle">Children, Caregivers, and Librarians in Everyday Library Encounters</span></h3>
+        <p class="project-state"><strong>Proposal in preparation</strong><br>Institute of Museum and Library Services (IMLS) &middot; Laura Bush 21st Century Librarian Program &middot; Early Career Research</p>
+        <p>Finding Books Together asks how young children, caregivers, and librarians shape assistance in everyday book-finding encounters. The proposed study combines contextual fieldwork with microethnographic discourse analysis to trace how children's talk, gestures, corrections, and recognition influence a question, search, or recommendation.</p>
+        <p>It will also develop case-based learning resources that help children's services staff examine possible responses and compare what follows. The project connects research on children's information practices with professional learning in public libraries.</p>
+        <a class="story-link" href="research-library.html">Read about Finding Books Together &rarr;</a>
+    </article>
+
+    <article class="detail" id="lego" aria-labelledby="lego-title">
+        <div class="tag">Multilingual family learning &middot; Generative AI</div>
+        <h3 id="lego-title">Learning Together<span class="project-subtitle">How AI Reshapes Interaction in Multilingual Families</span></h3>
+        <p class="project-state"><strong>Application submitted &middot; Decision pending</strong><br>LEGO Foundation Fellowship &middot; Proposed research</p>
+        <p>Learning Together asks how generative AI enters multilingual family learning and changes whose knowledge is recognized. Using longitudinal interactional ethnography, the proposed study will follow recurring activities such as shared reading, homework, storytelling, and family inquiry.</p>
+        <p>It will examine how children and caregivers evaluate AI-generated responses, negotiate participation and authority, and decide when to use, question, refuse, or defer AI. The project aims to inform resources that support shared inquiry, multilingual participation, and productive struggle in family learning.</p>
+        <a class="story-link" href="research-ai.html">Read about Learning Together &rarr;</a>
+    </article>
+
+    <div class="project-group-head" id="foundations">
+        <h2>Research Foundations</h2>
+        <p>Earlier fieldwork and established research strands provide the foundation for these new directions. Analysis and publication continue across this work.</p>
+        <nav class="toc" aria-label="Foundational research projects">
+            <a href="#museums">Science Museums</a>
+            <a href="#architecture">Design Studio</a>
+            <a href="#floa">FLOA</a>
+        </nav>
+    </div>
+
     <!-- MUSEUMS -->
     <section class="detail" id="museums">
         <div class="tag">Multilingual family learning</div>
-        <h2>Multilingual Family Literacy in Science Museums</h2>
+        <h3>Multilingual Family Literacy in Science Museums</h3>
         <img class="project-image contain" src="signage.png" alt="Museum signage examined in multilingual family learning research">
         <p>This program began my research. In a series of video-based, ethnographic studies, I followed sojourning Korean-English families as they made sense of exhibits in a public science museum. Rather than treating literacy as the decoding of print, I examined how families drew on their full semiotic repertoire, their talk, gesture, gaze, objects, and the museum's own labels and instructions, to reason together.</p>
         <p>Two patterns recur across cases. Families translanguage fluidly, layering translations to fit a child's reasoning, reworking a label's wording into successive and more precise options. And institutional texts do more than inform: signage, instructions, and exhibit scripts quietly <strong>gate participation</strong> and define what counts as literate competence. Reading is often positioned as the sanctioned way into an exhibit, while families' multilingual sense-making goes unrecorded.</p>
@@ -189,7 +235,7 @@
     <!-- ARCHITECTURE -->
     <section class="detail" id="architecture">
         <div class="tag">Professional vision</div>
-        <h2>Professional Vision in the Architecture Design Studio</h2>
+        <h3>Professional Vision in the Architecture Design Studio</h3>
         <img class="project-image" src="architecture-blurred.webp" alt="Anonymized architecture students examining design models during a studio critique">
         <p>In a landscape architecture studio, I study how students, many of them multilingual and international, learn to see and talk like designers. The central site is the desk critique, where an instructor and a student work together over a physical model. Using fine-grained multimodal transcription, I trace how talk, gesture, gaze, and the model itself coordinate to build shared design narratives.</p>
         <p>The analysis treats <strong>professional vision</strong> as an interactional accomplishment rather than a private skill. Students do not simply receive feedback; through pointing, shaping gestures, and shifts of gaze, they author design stories and rehearse imagined movement through space, a biker descending a slope, a pedestrian crossing a path. Instructors' advice-giving opens room for this authoring, and disciplinary ways of seeing laminate across time and imagined scenarios.</p>
@@ -207,11 +253,11 @@
     <!-- FLOA -->
     <section class="detail" id="floa">
         <div class="tag">Humanizing teacher education</div>
-        <h2>Family Learning Observation &amp; Analysis (FLOA)</h2>
+        <h3>Family Learning Observation &amp; Analysis (FLOA)</h3>
         <img class="project-image" src="FLOA.jpg" alt="Family Learning Observation and Analysis in an informal learning setting">
         <p>FLOA is a structured training cycle, Observe, Analyze, Reflect, Plan, that I built into literacy methods courses. Its purpose is to slow down interpretation so that preservice teachers replace deficit assumptions with evidence-based noticing of what multilingual families actually do.</p>
         <p>Working from video cases and a fieldnote protocol, candidates learn to broaden literacy beyond print to multimodal participation, and to move families' linguistic practices from the background to central evidence of children's meaning-making. The work also names a stubborn limit: even after noticing multilingual competence, candidates often default to English-only lesson plans. That pattern reveals <strong>raciolinguistic ideologies as a design problem</strong> in teacher learning, not simply an attitude to be corrected.</p>
-        <p>FLOA connects my family-learning research to teacher education, and it is the apparatus I am now adapting to train noticing in library and museum staff.</p>
+        <p>FLOA connects my family-learning research to teacher education and informs my developing approach to case-based professional learning in public libraries.</p>
         <div class="related">
             <div class="related-label">Related publications</div>
             <a class="rpub" href="https://doi.org/10.1177/23813377251358188" target="_blank" rel="noopener">
@@ -225,19 +271,6 @@
         </div>
         <a class="story-link" href="research-floa.html">Read the project story &rarr;</a>
     </section>
-
-    <!-- LIBRARY -->
-    <section class="detail" id="library">
-        <div class="tag">Early literacies</div>
-        <h2>Professional Vision in Library Storytime</h2>
-        <img class="project-image" src="storytime.png" alt="Library storytime and family learning">
-        <p>This is the forward direction of my program at the iSchool. I am extending professional vision from classrooms and museums into public libraries, with storytime as the anchoring site. The questions are how multilingual families participate in storytime and library spaces, what institutional texts and program scripts make noticeable or invisible, and how staff can be trained to see family competence as evidence.</p>
-        <p>The design is comparative. Two nearby libraries serve overlapping but distinct multilingual communities through different infrastructures, which lets me ask how institutional arrangements shape what competence becomes legible. The method carries over from my earlier work: multimodal interaction analysis of naturally occurring programs, a shared video corpus and annotation workflow, and FLOA-derived noticing routines adapted for library staff. The aim is not only to document participation but to <strong>redesign storytime and public programs as equitable, built-in access</strong>.</p>
-        <p>I am positioning this work for IMLS and Spencer funding and for collaboration across campus, including the Center for Children's Books, the CU Community Fab Lab, and local public libraries.</p>
-        <div class="status">Emerging program, 2026 onward. Details and partnerships will be added as the work develops.</div>
-        <a class="story-link" href="research-library.html">Read the project story &rarr;</a>
-    </section>
-
 
     <section class="detail" id="methodology">
         <div class="tag">Multimodal interaction analysis</div>

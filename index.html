@@ -114,6 +114,18 @@
         .narrative p:last-child { margin-bottom: 0; }
         .narrative strong { font-weight: 500; color: var(--ink); }
 
+        /* current research projects */
+        .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+        .project-card { display: flex; flex-direction: column; padding: 28px; background: var(--card); border: 1px solid var(--hairline); border-radius: 14px; }
+        .project-card .project-context { margin: 0 0 12px; font-family: var(--serif-display); font-size: 12px; line-height: 1.6; letter-spacing: .06em; color: var(--ink-soft); }
+        .project-card h3 { margin: 0; font-family: var(--serif-display); font-size: 28px; font-weight: 420; line-height: 1.2; color: var(--illini-blue); }
+        .project-card .project-description { margin: 18px 0; font-size: 18px; line-height: 1.65; color: var(--ink-soft); }
+        .project-card .project-status { margin: 0 0 20px; font-size: 15px; line-height: 1.5; color: var(--illini-blue); }
+        .project-card .project-link { align-self: flex-start; margin-top: auto; font-family: var(--serif-display); font-size: 14px; color: var(--illini-blue); text-underline-offset: 4px; }
+        .project-card .project-link:hover { text-decoration-color: var(--illini-orange); }
+        .project-card .project-link:focus-visible { outline: 2px solid var(--illini-blue); outline-offset: 5px; }
+        @media (max-width: 720px) { .project-grid { grid-template-columns: 1fr; } .project-card { padding: 24px; } }
+
 
         /* beyond research */
         .beyond-list { border-top: 1px solid var(--hairline); }
@@ -282,6 +294,8 @@
 }
 @media (prefers-reduced-motion: reduce) { .email-fab { transition: none; } }
 
+
+@media (max-width: 560px) { .site-nav { flex-direction: column; align-items: flex-start; gap: 18px; } .site-nav .brand { white-space: nowrap; } .site-nav .nav-links { justify-content: flex-start; } }
 </style>
 </head>
 
@@ -337,13 +351,38 @@
     <div class="section-head"><h2>Research Program</h2></div>
     <div class="narrative">
         <p class="lead">I study how multilingual children, families, and educators make meaning together through everyday interaction, and how institutions can learn to recognize and build on those strengths in more equitable ways.</p>
-        <p>Across science museums, design studios, teacher education, and library storytime, my work asks a common question: how does competence become visible, and how can professionals and institutions learn to notice differently?</p>
+        <p>Across science museums, design studios, teacher education, public libraries, and family learning with AI, my work asks a common question: how does competence become visible, and how can professionals and institutions learn to notice differently?</p>
         <p>Using multimodal interaction analysis, I trace how talk, gesture, gaze, objects, and institutional texts shape participation. This work connects multilingual family learning, professional vision, and the design of more humanizing educational and public spaces.</p>
         <div class="links" style="margin-top:26px">
-            <a href="research.html">Explore Research</a>
+            <a href="research.html#current-projects">Explore Current Projects</a>
             <a href="publications.html">View Publications</a>
         </div>
     </div>
+</section>
+
+<!-- CURRENT PROJECTS -->
+<section aria-labelledby="current-projects-heading">
+    <div class="section-head">
+        <h2 id="current-projects-heading">Current Projects</h2>
+        <p class="section-sub">New research in development on everyday learning, multilingual participation, and professional judgment.</p>
+    </div>
+    <div class="project-grid">
+        <article class="project-card">
+            <p class="project-context">Public libraries &middot; IMLS LB21</p>
+            <h3>Finding Books Together</h3>
+            <p class="project-description">How children, caregivers, and librarians shape questions, searches, and recommendations in everyday book-finding encounters.</p>
+            <p class="project-status">Proposal in preparation</p>
+            <a class="project-link" href="research.html#imls">Explore Finding Books Together &rarr;</a>
+        </article>
+        <article class="project-card">
+            <p class="project-context">Multilingual families &middot; LEGO Foundation Fellowship</p>
+            <h3>Learning Together</h3>
+            <p class="project-description">How generative AI reshapes interaction, shared inquiry, and whose knowledge is recognized in multilingual family learning.</p>
+            <p class="project-status">Application submitted &middot; Decision pending</p>
+            <a class="project-link" href="research.html#lego">Explore Learning Together &rarr;</a>
+        </article>
+    </div>
+    <div class="links" style="margin-top:26px"><a href="research.html#foundations">Explore Research Foundations</a></div>
 </section>
 
 <!-- CONTACT -->
