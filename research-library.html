@@ -92,6 +92,17 @@ a:focus-visible { outline: 2px solid #13294B; outline-offset: 5px; }
 
 
 @media (max-width: 560px) { .site-nav { flex-direction: column; align-items: flex-start; gap: 18px; } .site-nav .brand { white-space: nowrap; } .site-nav .nav-links { justify-content: flex-start; } }
+
+.scenario-figure { margin:30px 0; }
+.scenario-figure .scenario-image { display:block; width:100%; height:auto; border-radius:14px; border:1px solid rgba(19,41,75,.12); }
+.scenario-figure figcaption { margin-top:10px; font-size:14px; line-height:1.6; color:#514B43; }
+.proposal-scenario { margin:34px 0; padding:26px; border:1px solid rgba(19,41,75,.13); border-radius:14px; background:rgba(255,255,255,.55); scroll-margin-top:24px; }
+.proposal-scenario h2 { margin:0; font-size:clamp(24px,3.4vw,32px); line-height:1.25; }
+.proposal-scenario .scenario-label { margin:12px 0 20px; font-size:14px; line-height:1.6; color:#514B43; }
+.proposal-scenario blockquote { margin:0; }
+.proposal-scenario blockquote p { margin:0; font-size:18px; line-height:1.8; color:#4F4A42; }
+@media (max-width:560px) { .proposal-scenario { padding:20px; } }
+
 </style>
 </head>
 
@@ -110,7 +121,15 @@ a:focus-visible { outline: 2px solid #13294B; outline-offset: 5px; }
     <p><strong>Proposal in preparation</strong><br>Institute of Museum and Library Services (IMLS)<br>Laura Bush 21st Century Librarian Program &middot; Early Career Research</p>
     <p class="as-of">Status as of October 26, 2026.</p>
 </div>
-<p>Finding a book is also a process of understanding one another. A child's interest may take shape through a gesture, a correction, a caregiver's explanation, or recognition of a book that feels right. This proposed study asks how young children, caregivers, and librarians shape assistance together in everyday book-finding encounters.</p>
+<figure class="scenario-figure">
+    <img class="scenario-image" src="images/finding-books-together-scenario-20261026.png" alt="Concept illustration of a child correcting a caregiver while a librarian listens during a book-finding encounter." width="1672" height="941" loading="lazy" decoding="async">
+    <figcaption>AI-generated concept illustration inspired by the proposal scenario.</figcaption>
+</figure>
+<section class="proposal-scenario" id="scenario" aria-labelledby="scenario-heading">
+<h2 id="scenario-heading">A book-finding encounter</h2>
+<p class="scenario-label">Hypothetical scenario from the proposal</p>
+<blockquote><p>Consider this hypothetical book-finding encounter. A parent approaches the children's desk with a four-year-old. "We're trying to find a book she saw at preschool. She remembers a blue cover." Looking at the parent, the librarian asks, "What do you remember about the story?" As the question ends, the librarian turns toward the child and waits. "A boy and his dog, I think," the parent begins. The child touches the parent's arm and makes a small headshake. The parent stops and looks down. Turning toward the child, the librarian asks, "What was in the story?" "A monster." The librarian repeats "A monster" and pauses. The child adds a name. The librarian searches and turns the screen toward them. The child points to a cover. "That one."</p></blockquote>
+</section>
 <h2>The Research Focus</h2>
 <p>The project examines how children's contributions influence a question, search, or recommendation. It attends to how participants establish what a child is looking for, respond when an initial understanding does not fit, and recognize possible next steps.</p>
 <h2>The Proposed Approach</h2>
@@ -131,4 +150,5 @@ a:focus-visible { outline: 2px solid #13294B; outline-offset: 5px; }
 
 </body>
 </html>
+
 
